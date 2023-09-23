@@ -38,6 +38,8 @@ public class CameraManager : MonoBehaviour
 
     //vars to limit how high/low you can rotate camera
     [Header("LOOK ANGLE")]
+    [SerializeField] private bool invertY = true;
+    [SerializeField] private bool invertX = true;
     [SerializeField] private float minimumPivotAngle = -35f;
     [SerializeField] private float maximumPiviotAngle = 35f;
 
@@ -78,8 +80,20 @@ public class CameraManager : MonoBehaviour
         Vector3 rotation;
         Quaternion targetRotation;
 
-        lookAngle = lookAngle + (inputManager.CameraInputX * cameraLookSpeed);
-        pivotAngle = pivotAngle + (inputManager.CameraInputY * cameraPivotSpeed);
+        float inX = 1f;
+        float inY = 1f;
+        if (invertX)
+        {
+            inX = -1f;
+        }
+        if (invertY)
+        {
+            inY = -1f;
+        }
+
+
+        lookAngle = lookAngle + (inputManager.CameraInputX * cameraLookSpeed) * inX;
+        pivotAngle = pivotAngle + (inputManager.CameraInputY * cameraPivotSpeed) * inY;
         pivotAngle = Mathf.Clamp(pivotAngle, minimumPivotAngle, maximumPiviotAngle);
 
         rotation = Vector3.zero;
