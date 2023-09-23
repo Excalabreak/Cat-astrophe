@@ -12,8 +12,17 @@ public class PlayerMotion : MonoBehaviour
     //setable speeds in editor
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float rotationSpeed = 15f;
+
     //the direction where it rotates
     private Vector3 moveDirection;
+
+    //variables for falling
+    private bool isGrounded;
+    private float inAirTimer;
+    [SerializeField] private float rayCastHeightOffset = 0.5f;
+    [SerializeField] private float leapingVelocity;
+    [SerializeField] private float fallingSpeed;
+    [SerializeField] private LayerMask groundLayer;
 
     //on awake:
     //sets the input manager and rigid body
@@ -29,6 +38,7 @@ public class PlayerMotion : MonoBehaviour
     /// </summary>
     public void HandleAllMovement()
     {
+        HandleFalling();
         HandleMovement();
         HandleRotation();
     }
@@ -70,5 +80,32 @@ public class PlayerMotion : MonoBehaviour
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         transform.rotation = playerRotation;
+    }
+
+    /// <summary>
+    /// This function will allow the player to fall
+    /// </summary>
+    private void HandleFalling()
+    {
+        RaycastHit hit;
+        Vector3 rayCastOrigin = transform.position;
+        rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
+
+        if (!isGrounded)
+        {
+            inAirTimer = inAirTimer + Time.deltaTime;
+            playerRigidBody.AddForce(transform.forward * leapingVelocity);
+            playerRigidBody.AddForce(-Vector3.up * fallingSpeed * inAirTimer);
+        }
+
+        if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, groundLayer))
+        {
+            inAirTimer = 0;
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 }

@@ -292,6 +292,12 @@ MonoBehaviour:
   cameraObject: {fileID: 1410979268}
   moveSpeed: 7
   rotationSpeed: 15
+  rayCastHeightOffset: 0.5
+  leapingVelocity: 3
+  fallingSpeed: 1000
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &596235473
 MonoBehaviour:
   m_ObjectHideFlags: 0
