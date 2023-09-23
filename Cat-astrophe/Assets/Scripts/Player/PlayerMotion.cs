@@ -25,7 +25,6 @@ public class PlayerMotion : MonoBehaviour
 
     /// <summary>
     /// Calls all Handle functions in this script
-    /// Calls all Handle functions in this script
     /// (Movement, Rotation)
     /// </summary>
     public void HandleAllMovement()

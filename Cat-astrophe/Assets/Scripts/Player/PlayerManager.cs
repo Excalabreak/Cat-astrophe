@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    //manangers
     private InputManager inputManager;
     private PlayerMotion playerMotion;
+    private CameraManager cameraManager;
 
     /*
      * On Awake:
@@ -16,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
         playerMotion = GetComponent<PlayerMotion>();
+        cameraManager = FindObjectOfType<CameraManager>();
     }
 
     /*
@@ -37,5 +40,15 @@ public class PlayerManager : MonoBehaviour
     private void FixedUpdate()
     {
         playerMotion.HandleAllMovement();
+    }
+
+    /*
+     * after every frame has ended:
+     * 
+     * camera fallows target
+     */
+    private void LateUpdate()
+    {
+        cameraManager.HandleAllCameraMovement();
     }
 }

@@ -12,6 +12,11 @@ public class InputManager : MonoBehaviour
     private float verticalInput;
     private float horizontalInput;
 
+    //what is the camera input from the controller
+    private Vector2 cameraInput;
+    private float cameraInputX;
+    private float cameraInputY;
+
     /*
      * When the object(player) this is on is enabled:
      * creates a PlayerControls if there isnt already one
@@ -25,6 +30,7 @@ public class InputManager : MonoBehaviour
             playerControls = new PlayerControls();
 
             playerControls.PlayerMovement.Movement.performed += i => moveInput = i.ReadValue<Vector2>();
+            playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
         }
 
         playerControls.Enable();
@@ -46,12 +52,16 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets the vertical and horizontal input floats from the moveInput
+    /// Sets the vertical and horizontal input floats from:
+    /// moveInput and cameraInput
     /// </summary>
     private void HandleMovementInput()
     {
         verticalInput = moveInput.y;
         horizontalInput = moveInput.x;
+
+        cameraInputX = cameraInput.x;
+        cameraInputY = cameraInput.y;
     }
 
     public float VerticalInput
@@ -62,5 +72,15 @@ public class InputManager : MonoBehaviour
     public float HorizontalInput
     {
         get { return horizontalInput; }
+    }
+
+    public float CameraInputX
+    {
+        get { return cameraInputX; }
+    }
+
+    public float CameraInputY
+    {
+        get { return cameraInputY; }
     }
 }
