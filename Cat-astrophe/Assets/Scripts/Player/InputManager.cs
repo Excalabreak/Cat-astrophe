@@ -7,6 +7,8 @@ public class InputManager : MonoBehaviour
     //gets input from controller
     private PlayerControls playerControls;
 
+    private PlayerMotion playerMotion;
+
     //what is the input from the controller
     private Vector2 moveInput;
     private float verticalInput;
@@ -16,6 +18,15 @@ public class InputManager : MonoBehaviour
     private Vector2 cameraInput;
     private float cameraInputX;
     private float cameraInputY;
+
+    //variables for jump
+    private bool jumpInput;
+
+    //on awake: get PlayerMotion
+    private void Awake()
+    {
+        playerMotion = GetComponent<PlayerMotion>();
+    }
 
     /*
      * When the object(player) this is on is enabled:
@@ -31,6 +42,8 @@ public class InputManager : MonoBehaviour
 
             playerControls.PlayerMovement.Movement.performed += i => moveInput = i.ReadValue<Vector2>();
             playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
+
+            playerControls.PlayerActions.Jump.performed += i => jumpInput = true;
         }
 
         playerControls.Enable();
@@ -49,6 +62,7 @@ public class InputManager : MonoBehaviour
     public void HandleAllInputs()
     {
         HandleMovementInput();
+        HandleJumpInput();
     }
 
     /// <summary>
@@ -62,6 +76,18 @@ public class InputManager : MonoBehaviour
 
         cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;
+    }
+
+    /// <summary>
+    /// when the player jumps, turn off jumpInput for only one jump and calls HandleJump in playerMotion
+    /// </summary>
+    private void HandleJumpInput()
+    {
+        if (jumpInput)
+        {
+            jumpInput = false;
+            playerMotion.HandleJump();
+        }
     }
 
     public float VerticalInput

@@ -22,7 +22,12 @@ public class PlayerMotion : MonoBehaviour
     [SerializeField] private float rayCastHeightOffset = 0.5f;
     [SerializeField] private float leapingVelocity;
     [SerializeField] private float fallingSpeed;
+    private float maxDistance = 1;
     [SerializeField] private LayerMask groundLayer;
+
+    //variables for jumping
+    [SerializeField] private float gravityIntensity = 3;
+    [SerializeField] private float jumpHeight = -15;
 
     //on awake:
     //sets the input manager and rigid body
@@ -55,7 +60,8 @@ public class PlayerMotion : MonoBehaviour
         moveDirection.y = 0;
         moveDirection = moveDirection * moveSpeed;
 
-        playerRigidBody.velocity = moveDirection;
+        //playerRigidBody.velocity = moveDirection;
+        playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
     }
 
     /// <summary>
@@ -98,7 +104,7 @@ public class PlayerMotion : MonoBehaviour
             playerRigidBody.AddForce(-Vector3.up * fallingSpeed * inAirTimer);
         }
 
-        if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, groundLayer))
+        if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, maxDistance, groundLayer))
         {
             inAirTimer = 0;
             isGrounded = true;
@@ -108,4 +114,15 @@ public class PlayerMotion : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    public void HandleJump()
+    {
+        if (isGrounded)
+        {
+            float jumpVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+            Vector3 playerVelocity = moveDirection;
+            playerVelocity.y = jumpVelocity;
+            playerRigidBody.velocity = playerVelocity;
+        }
+    }    
 }
