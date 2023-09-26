@@ -5488,6 +5488,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: cat
       objectReference: {fileID: 0}
+    - target: {fileID: 4060217656427326628, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4317799874801343865, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
       propertyPath: m_Enabled
       value: 1
