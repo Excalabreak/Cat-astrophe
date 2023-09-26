@@ -154,7 +154,7 @@ MonoBehaviour:
   iRadius: 0.5
   iMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   iUI: {fileID: 0}
 --- !u!82 &4060217656427326628
 AudioSource:
