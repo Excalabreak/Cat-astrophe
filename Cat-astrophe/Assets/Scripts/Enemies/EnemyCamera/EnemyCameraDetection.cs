@@ -5,13 +5,15 @@ using UnityEngine;
 public class EnemyCameraDetection : MonoBehaviour
 {
     private GameObject player;
+    private PlayerDetected pd;
 
-    [SerializeField] private float maxDistance = 25;
+    [SerializeField] private float maxDistance = 25f;
 
     //on awake, get player
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        pd = player.GetComponent<PlayerDetected>();
     }
 
     /*
@@ -35,9 +37,23 @@ public class EnemyCameraDetection : MonoBehaviour
                 //Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.gameObject == player)
                 {
-                    Debug.Log("see player");
+                    pd.IsDetected = true;
+                    return;
+                    //Debug.Log("see player");
+                }
+                else
+                {
+                    pd.IsDetected = false;
                 }
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            pd.IsDetected = false;
         }
     }
 }
