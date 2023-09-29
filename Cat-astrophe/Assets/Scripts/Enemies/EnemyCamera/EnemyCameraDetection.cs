@@ -39,7 +39,7 @@ public class EnemyCameraDetection : MonoBehaviour
                 {
                     pd.IsDetected = true;
                     return;
-                    //Debug.Log("see player");
+                    Debug.Log("see player");
                 }
                 else
                 {
