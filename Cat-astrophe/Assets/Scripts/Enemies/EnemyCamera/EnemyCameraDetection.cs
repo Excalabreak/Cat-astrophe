@@ -38,7 +38,7 @@ public class EnemyCameraDetection : MonoBehaviour
                 if (hit.collider.gameObject == player)
                 {
                     pd.IsDetected = true;
-                    Debug.Log("see player");
+                    //Debug.Log("see player");
                 }
                 else
                 {
