@@ -6,7 +6,7 @@ public class BreakableScript : MonoBehaviour
 {
     //health of the object
     [SerializeField] private int maxHealth = 3;
-    public int currentHealth;
+    [SerializeField] private int currentHealth;
 
     //materials for feedback of damage
     private MeshRenderer mr;
@@ -50,7 +50,7 @@ public class BreakableScript : MonoBehaviour
         {
             return destroyedMat;
         }
-        else if (healthPercent < .65f)
+        else if (healthPercent < .67f)
         {
             return halfMat;
         }
