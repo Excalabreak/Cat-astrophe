@@ -1045,14 +1045,6 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 2055744962}
-    - target: {fileID: 431776527717608541, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 431776527717608541, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
-      propertyPath: Priority
-      value: 36
-      objectReference: {fileID: 0}
     - target: {fileID: 924834371524206155, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
       propertyPath: m_SizeDelta.x
       value: 2000
@@ -1068,10 +1060,6 @@ PrefabInstance:
     - target: {fileID: 2414368184967431939, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881364672777388580, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
-      propertyPath: sleeping
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4060217656427326628, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
       propertyPath: m_PlayOnAwake

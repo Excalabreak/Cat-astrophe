@@ -9,15 +9,15 @@ public class Speak : MonoBehaviour
     [SerializeField] private AudioSource meow;
     [SerializeField] private AudioSource purr;
     [SerializeField] private bool sleeping;
-    private float timing;
+  
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Meow();
 
-        Purr();
-
+        //Purr();
+           
     }
 
     // Press [F] for meow
@@ -34,17 +34,17 @@ public class Speak : MonoBehaviour
     {
         if (Keyboard.current.qKey.isPressed)
         {
-            if (sleeping == false)
-            {
-                sleeping = true;
-                purr.Play();
-            }
+            sleeping = true;
+            purr.Play();
         }
         else
         {
-            purr.Stop();
             sleeping = false;
+            if (sleeping == false)
+            {
+                purr.Stop();
+            }
         }
-
+        
     }
 }
