@@ -16,7 +16,7 @@ public class Speak : MonoBehaviour
     {
         Meow();
 
-        //Purr();
+        Purr();
            
     }
 
@@ -34,17 +34,17 @@ public class Speak : MonoBehaviour
     {
         if (Keyboard.current.qKey.isPressed)
         {
-            sleeping = true;
-            purr.Play();
+            if (sleeping == false)
+            {
+                sleeping = true;
+                purr.Play();
+            }
         }
         else
         {
+            purr.Stop();
             sleeping = false;
-            if (sleeping == false)
-            {
-                purr.Stop();
-            }
         }
-        
+
     }
 }
