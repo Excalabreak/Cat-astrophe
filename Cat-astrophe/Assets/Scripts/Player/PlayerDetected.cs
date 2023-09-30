@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerDetected : MonoBehaviour
 {
+    //bool if the cat is detected or not
     private bool isDetected = false;
 
     public bool IsDetected

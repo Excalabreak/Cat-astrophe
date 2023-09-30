@@ -237,6 +237,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Scratch"",
+                    ""type"": ""Button"",
+                    ""id"": ""e6cf7444-159d-4814-8ac0-eecad245be79"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -261,6 +270,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""34f875ff-9ca2-4f48-86ab-17eae0f1880c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scratch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -274,6 +294,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // PlayerActions
         m_PlayerActions = asset.FindActionMap("PlayerActions", throwIfNotFound: true);
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerActions_Scratch = m_PlayerActions.FindAction("Scratch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -390,11 +411,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerActions;
     private List<IPlayerActionsActions> m_PlayerActionsActionsCallbackInterfaces = new List<IPlayerActionsActions>();
     private readonly InputAction m_PlayerActions_Jump;
+    private readonly InputAction m_PlayerActions_Scratch;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
+        public InputAction @Scratch => m_Wrapper.m_PlayerActions_Scratch;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -407,6 +430,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Scratch.started += instance.OnScratch;
+            @Scratch.performed += instance.OnScratch;
+            @Scratch.canceled += instance.OnScratch;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -414,6 +440,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Scratch.started -= instance.OnScratch;
+            @Scratch.performed -= instance.OnScratch;
+            @Scratch.canceled -= instance.OnScratch;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -439,5 +468,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IPlayerActionsActions
     {
         void OnJump(InputAction.CallbackContext context);
+        void OnScratch(InputAction.CallbackContext context);
     }
 }
