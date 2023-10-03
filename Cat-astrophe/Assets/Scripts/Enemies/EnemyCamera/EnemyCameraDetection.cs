@@ -9,6 +9,8 @@ public class EnemyCameraDetection : MonoBehaviour
 
     [SerializeField] private float maxDistance = 25f;
 
+    [SerializeField] private LayerMask cameraMask;
+
     //on awake, get player
     private void Awake()
     {
@@ -28,31 +30,17 @@ public class EnemyCameraDetection : MonoBehaviour
             RaycastHit hit;
 
             Vector3 raycastOrigin = transform.position;
-            raycastOrigin.z = raycastOrigin.z + 1;
-
             Vector3 playerDirection = (player.transform.position - gameObject.transform.position).normalized;
+            raycastOrigin = raycastOrigin + (playerDirection * 2);
 
-            if (Physics.Raycast(raycastOrigin, playerDirection, out hit, maxDistance))
+            if (Physics.Raycast(raycastOrigin, playerDirection, out hit, maxDistance, cameraMask, QueryTriggerInteraction.Ignore))
             {
-                //Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.gameObject == player)
                 {
-                    pd.IsDetected = true;
-                    //Debug.Log("see player");
-                }
-                else
-                {
-                    pd.IsDetected = false;
+                    pd.HandleDetection();
+                    Debug.Log(gameObject.name + "see player");
                 }
             }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == player)
-        {
-            pd.IsDetected = false;
         }
     }
 }
