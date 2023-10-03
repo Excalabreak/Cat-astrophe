@@ -1398,8 +1398,9 @@ GameObject:
   - component: {fileID: 287927332}
   - component: {fileID: 287927331}
   - component: {fileID: 287927330}
-  m_Layer: 0
-  m_Name: Cylinder (3)
+  - component: {fileID: 287927333}
+  m_Layer: 7
+  m_Name: CatPost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1418,7 +1419,7 @@ Transform:
   m_LocalScale: {x: 3.192, y: 10.203866, z: 3.192}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1879487405}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &287927330
 CapsuleCollider:
@@ -1493,6 +1494,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287927328}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &287927333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287927328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb11e7eb02482444688900294a4ad797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1 &330846682
 GameObject:
   m_ObjectHideFlags: 0
@@ -6760,7 +6774,6 @@ Transform:
   - {fileID: 1000361601}
   - {fileID: 1288456577}
   - {fileID: 371616516}
-  - {fileID: 287927329}
   - {fileID: 866225210}
   - {fileID: 727367571}
   - {fileID: 94393612}
@@ -7485,6 +7498,8 @@ GameObject:
   - component: {fileID: 7765187166814517591}
   - component: {fileID: 7765187166814517592}
   - component: {fileID: 7765187166814517593}
+  - component: {fileID: 7765187166814517594}
+  - component: {fileID: 7765187166814517595}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -8026,6 +8041,74 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7765187166814517594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414368185537009060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453d6c1d43ca54446bad3908b7b4fdd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 208552270564589822}
+  rb: {fileID: 2541072000645950025}
+  pm: {fileID: 7765187166814517595}
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 128
+  climbSpeed: 10
+  maxClimbTime: 5
+  climbJumpUpForce: 7
+  climbJumpBackForce: 7
+  jumpKey: 32
+  climbJumps: 4
+  detectionLength: 3
+  sphereCastRadius: 3
+  maxWallLookAngle: 3
+  minWallNormalAngleChange: 3
+  exitingWall: 0
+  exitWallTime: 2
+--- !u!114 &7765187166814517595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414368185537009060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6fc6e106fef1b4dbab010d421ab446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 10
+  sprintSpeed: 20
+  slideSpeed: 10
+  climbSpeed: 10
+  speedIncreaseMultiplier: 10
+  slopeIncreaseMultiplier: 0
+  groundDrag: 0
+  jumpForce: 10
+  jumpCooldown: 5
+  airMultiplier: 2
+  crouchSpeed: 5
+  crouchYScale: 2
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
+  playerHeight: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1
+  maxSlopeAngle: 0
+  climbingScript: {fileID: 7765187166814517594}
+  orientation: {fileID: 489892699}
+  state: 0
+  sliding: 0
+  crouching: 0
+  climbing: 1
 --- !u!23 &8206261309311741726
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8101,6 +8184,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 559652785}
   - {fileID: 1879487405}
+  - {fileID: 287927329}
   - {fileID: 1761372539}
   - {fileID: 1761534075}
   - {fileID: 514571396}

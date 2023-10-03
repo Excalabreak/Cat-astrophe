@@ -273,6 +273,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Climb"",
+                    ""type"": ""Button"",
+                    ""id"": ""54bb59b5-4f72-4a9e-a40c-b245d7553b73"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -385,6 +394,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Toss"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7fbb955-148a-42b3-8d6b-94e33d2a1b05"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Climb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""459a511a-a2f9-42a9-9864-4150234b23a1"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Climb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -402,6 +433,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerActions_Use = m_PlayerActions.FindAction("Use", throwIfNotFound: true);
         m_PlayerActions_Interact = m_PlayerActions.FindAction("Interact", throwIfNotFound: true);
         m_PlayerActions_Toss = m_PlayerActions.FindAction("Toss", throwIfNotFound: true);
+        m_PlayerActions_Climb = m_PlayerActions.FindAction("Climb", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -522,6 +554,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Use;
     private readonly InputAction m_PlayerActions_Interact;
     private readonly InputAction m_PlayerActions_Toss;
+    private readonly InputAction m_PlayerActions_Climb;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -531,6 +564,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Use => m_Wrapper.m_PlayerActions_Use;
         public InputAction @Interact => m_Wrapper.m_PlayerActions_Interact;
         public InputAction @Toss => m_Wrapper.m_PlayerActions_Toss;
+        public InputAction @Climb => m_Wrapper.m_PlayerActions_Climb;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -555,6 +589,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Toss.started += instance.OnToss;
             @Toss.performed += instance.OnToss;
             @Toss.canceled += instance.OnToss;
+            @Climb.started += instance.OnClimb;
+            @Climb.performed += instance.OnClimb;
+            @Climb.canceled += instance.OnClimb;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -574,6 +611,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Toss.started -= instance.OnToss;
             @Toss.performed -= instance.OnToss;
             @Toss.canceled -= instance.OnToss;
+            @Climb.started -= instance.OnClimb;
+            @Climb.performed -= instance.OnClimb;
+            @Climb.canceled -= instance.OnClimb;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -603,5 +643,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnUse(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnToss(InputAction.CallbackContext context);
+        void OnClimb(InputAction.CallbackContext context);
     }
 }
