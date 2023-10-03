@@ -21,7 +21,7 @@ public class EnemyCameraDetection : MonoBehaviour
     /*
      * When the player enters the trigger,
      * a raycast will see if the camera can see the player
-     * if it can... we will figure that out later
+     * if it can, calls HandleDetection();
      */
     private void OnTriggerStay(Collider other)
     {
@@ -38,7 +38,6 @@ public class EnemyCameraDetection : MonoBehaviour
                 if (hit.collider.gameObject == player)
                 {
                     pd.HandleDetection();
-                    Debug.Log(gameObject.name + "see player");
                 }
             }
         }

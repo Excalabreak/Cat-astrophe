@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class ScratchScript : MonoBehaviour
 {
+    //vars for getting caught damaging objects
+    private PlayerDetected playerDetected;
+    private bool wasWarned = false;
+    private bool caughtScraching = false;
+
+    //vars to render scrach
     [SerializeField] private GameObject scratchCollider;
     private MeshRenderer scratchMR;
 
+    //how much damage the cat does
     [SerializeField] private int scratchStrength = 1;
-    
+
+    //var to make sure how long the hitbox is active for
+    [SerializeField] float scratchTime = .5f;
     private bool isScratching = false;
+
+    //vars for cone of shame
+    [SerializeField] private MeshRenderer coneMR;
 
     private void Awake()
     {
+        playerDetected = GetComponent<PlayerDetected>();
         scratchMR = scratchCollider.GetComponent<MeshRenderer>();
     }
 
@@ -27,28 +40,50 @@ public class ScratchScript : MonoBehaviour
     {
         if (isScratching && other.gameObject.tag == "Breakable")
         {
-            BreakableScript breakScript = other.gameObject.GetComponent<BreakableScript>();
-
-            isScratching = false;
-
-            if (!breakScript.Invincible)
+            if (playerDetected.IsDetected && !caughtScraching)
             {
-                breakScript.DamageObject(scratchStrength);
+                if (wasWarned)
+                {
+                    caughtScraching = true;
+                    Debug.Log("GAME OVER");
+                }
+                else
+                {
+                    wasWarned = true;
+                    caughtScraching = true;
+                    coneMR.enabled = true;
+                    Debug.Log("CONE OF SHAME");
+                }
             }
+            else
+            {
+                BreakableScript breakScript = other.gameObject.GetComponent<BreakableScript>();
 
-            scratchMR.enabled = false;
+                isScratching = false;
+
+                if (!breakScript.Invincible)
+                {
+                    breakScript.DamageObject(scratchStrength);
+                }
+
+                scratchMR.enabled = false;
+            }
         }
     }
-
+    
+    /// <summary>
+    /// this coroutine will make sure the hitbox for the cat is on for a certian amount of time
+    /// </summary>
     private IEnumerator Scratch()
     {
         //Debug.Log("hi");
         scratchMR.enabled = true;
         isScratching = true;
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(scratchTime);
 
         scratchMR.enabled = false;
         isScratching = false;
+        caughtScraching = false;
     }
 }
