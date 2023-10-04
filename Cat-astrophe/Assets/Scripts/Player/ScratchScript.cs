@@ -9,6 +9,10 @@ public class ScratchScript : MonoBehaviour
     private bool wasWarned = false;
     private bool caughtScraching = false;
 
+    //vars for debuff when getting caught once
+    private PlayerMotion playerMotion;
+    [SerializeField] private GameOverUI gameOverUI;
+
     //vars to render scrach
     [SerializeField] private GameObject scratchCollider;
     private MeshRenderer scratchMR;
@@ -25,6 +29,7 @@ public class ScratchScript : MonoBehaviour
 
     private void Awake()
     {
+        playerMotion = GetComponent<PlayerMotion>();
         playerDetected = GetComponent<PlayerDetected>();
         scratchMR = scratchCollider.GetComponent<MeshRenderer>();
     }
@@ -45,13 +50,18 @@ public class ScratchScript : MonoBehaviour
                 if (wasWarned)
                 {
                     caughtScraching = true;
+                    gameOverUI.SetUpGameOverUI();
                     Debug.Log("GAME OVER");
+
+                    gameObject.SetActive(false);
                 }
                 else
                 {
                     wasWarned = true;
                     caughtScraching = true;
                     coneMR.enabled = true;
+                    playerMotion.HandleConeOfShame();
+                    gameOverUI.SetUpConeOfShameUI();
                     Debug.Log("CONE OF SHAME");
                 }
             }

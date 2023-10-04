@@ -13,6 +13,10 @@ public class PlayerMotion : MonoBehaviour
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float rotationSpeed = 15f;
 
+    //vars for debuff when getting caught once
+    [SerializeField] private float moveDebuff = 2f;
+    [SerializeField] private float jumpDebuff = 20f;
+
     //the direction where it rotates
     private Vector3 moveDirection;
 
@@ -46,6 +50,12 @@ public class PlayerMotion : MonoBehaviour
         HandleFalling();
         HandleMovement();
         HandleRotation();
+    }
+
+    public void HandleConeOfShame()
+    {
+        moveSpeed = moveSpeed - moveDebuff;
+        jumpHeight = jumpHeight + jumpDebuff;
     }
 
     /// <summary>
