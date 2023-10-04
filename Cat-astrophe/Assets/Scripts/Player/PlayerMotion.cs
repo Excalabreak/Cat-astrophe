@@ -124,5 +124,18 @@ public class PlayerMotion : MonoBehaviour
             playerVelocity.y = jumpVelocity;
             playerRigidBody.velocity = playerVelocity;
         }
-    }    
+    }
+
+    //mouse cursor is inactive in game
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
 }
