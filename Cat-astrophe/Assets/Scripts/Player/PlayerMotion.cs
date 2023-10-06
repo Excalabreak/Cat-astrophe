@@ -13,6 +13,10 @@ public class PlayerMotion : MonoBehaviour
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float rotationSpeed = 15f;
 
+    //vars for debuff when getting caught once
+    [SerializeField] private float moveDebuff = 2f;
+    [SerializeField] private float jumpDebuff = 20f;
+
     //the direction where it rotates
     private Vector3 moveDirection;
 
@@ -46,6 +50,12 @@ public class PlayerMotion : MonoBehaviour
         HandleFalling();
         HandleMovement();
         HandleRotation();
+    }
+
+    public void HandleConeOfShame()
+    {
+        moveSpeed = moveSpeed - moveDebuff;
+        jumpHeight = jumpHeight + jumpDebuff;
     }
 
     /// <summary>
@@ -124,18 +134,5 @@ public class PlayerMotion : MonoBehaviour
             playerVelocity.y = jumpVelocity;
             playerRigidBody.velocity = playerVelocity;
         }
-    }
-
-    //mouse cursor is inactive in game
-    private void OnApplicationFocus(bool focus)
-    {
-        if (focus)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-    }
+    }    
 }
