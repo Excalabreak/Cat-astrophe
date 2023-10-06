@@ -282,6 +282,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Scratch"",
+                    ""type"": ""Button"",
+                    ""id"": ""123c504d-9604-4846-a329-8a998bab9c3a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -416,6 +425,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Climb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""025f6cd4-16e1-44d1-a744-4b421fda90e9"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scratch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -434,6 +454,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerActions_Interact = m_PlayerActions.FindAction("Interact", throwIfNotFound: true);
         m_PlayerActions_Toss = m_PlayerActions.FindAction("Toss", throwIfNotFound: true);
         m_PlayerActions_Climb = m_PlayerActions.FindAction("Climb", throwIfNotFound: true);
+        m_PlayerActions_Scratch = m_PlayerActions.FindAction("Scratch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -555,6 +576,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Interact;
     private readonly InputAction m_PlayerActions_Toss;
     private readonly InputAction m_PlayerActions_Climb;
+    private readonly InputAction m_PlayerActions_Scratch;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -565,6 +587,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_PlayerActions_Interact;
         public InputAction @Toss => m_Wrapper.m_PlayerActions_Toss;
         public InputAction @Climb => m_Wrapper.m_PlayerActions_Climb;
+        public InputAction @Scratch => m_Wrapper.m_PlayerActions_Scratch;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -592,6 +615,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Climb.started += instance.OnClimb;
             @Climb.performed += instance.OnClimb;
             @Climb.canceled += instance.OnClimb;
+            @Scratch.started += instance.OnScratch;
+            @Scratch.performed += instance.OnScratch;
+            @Scratch.canceled += instance.OnScratch;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -614,6 +640,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Climb.started -= instance.OnClimb;
             @Climb.performed -= instance.OnClimb;
             @Climb.canceled -= instance.OnClimb;
+            @Scratch.started -= instance.OnScratch;
+            @Scratch.performed -= instance.OnScratch;
+            @Scratch.canceled -= instance.OnScratch;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -644,5 +673,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnToss(InputAction.CallbackContext context);
         void OnClimb(InputAction.CallbackContext context);
+        void OnScratch(InputAction.CallbackContext context);
     }
 }
