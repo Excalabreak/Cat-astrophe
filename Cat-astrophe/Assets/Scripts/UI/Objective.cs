@@ -26,7 +26,7 @@ public class Objective : MonoBehaviour
             objSFX.Play();
             theObjective.SetActive(true);
             theObjective.GetComponent<Animation>().Play("ObjectiveDisplayAnim");
-            theText.GetComponent<Text>().text = "Destroy everything befro Clara gets back home!";
+            theText.GetComponent<Text>().text = "Destroy everything before Clara gets back home!";
 
             // Delay function
             yield return new WaitForSeconds(7.3f);
