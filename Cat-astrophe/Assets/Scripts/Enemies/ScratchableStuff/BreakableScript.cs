@@ -6,7 +6,7 @@ public class BreakableScript : MonoBehaviour
 {
     //health of the object
     [SerializeField] private int maxHealth = 3;
-    [SerializeField] private int currentHealth;
+    private int currentHealth;
 
     //materials for feedback of damage
     private MeshRenderer mr;
