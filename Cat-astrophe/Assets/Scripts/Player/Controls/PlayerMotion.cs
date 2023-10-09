@@ -69,8 +69,7 @@ public class PlayerMotion : MonoBehaviour
         moveDirection.Normalize();
         moveDirection.y = 0;
         moveDirection = moveDirection * moveSpeed;
-
-        //playerRigidBody.velocity = moveDirection;
+        
         playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
     }
 
