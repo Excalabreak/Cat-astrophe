@@ -8,6 +8,8 @@ public class PlayerClimb : MonoBehaviour
     [SerializeField] private Transform orientation;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private LayerMask wallLayers;
+    private InputManager inputManager;
+    private PlayerMotion playerMotion;
 
     //var for climbing
     [SerializeField] private float climbSpeed = 10f;
@@ -25,16 +27,73 @@ public class PlayerClimb : MonoBehaviour
     private RaycastHit frontWallHit;
     private bool wallFront;
 
+    private void Awake()
+    {
+        inputManager = GetComponent<InputManager>();
+        playerMotion = GetComponent<PlayerMotion>();
+    }
+
     private void Update()
     {
         WallCheck();
+
+        StateMachine();
+        if (climbing)
+        {
+            HandleClimbingMovement();
+        }
+    }
+
+    private void StateMachine()
+    {
+        if (wallFront && inputManager.VerticalInput > 0 && wallLookAngle < maxWallLookAngle)
+        {
+            if (!climbing && climbTimer > 0)
+            {
+                StartClimbing();
+            }
+
+            if (climbTimer > 0)
+            {
+                climbTimer -= Time.deltaTime;
+            }
+            if (climbTimer < 0)
+            {
+                StopClimbing();
+            }
+        }
+        else
+        {
+            if (climbing)
+            {
+                StopClimbing();
+            }
+        }
     }
 
     private void WallCheck()
     {
         wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward, out frontWallHit, detectionLength, wallLayers);
         wallLookAngle = Vector3.Angle(orientation.forward, -frontWallHit.normal);
+
+        if (playerMotion.IsGrounded)
+        {
+            climbTimer = maxClimbTime;
+        }
     }
 
+    private void StartClimbing()
+    {
+        climbing = true;
+    }
 
+    private void HandleClimbingMovement()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, climbSpeed, rb.velocity.z);
+    }
+
+    private void StopClimbing()
+    {
+        climbing = false;
+    }
 }
