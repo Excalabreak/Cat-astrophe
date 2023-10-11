@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public class ScoreManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
+
+    [SerializeField]
+    private TMP_InputField inputName;
+    [SerializeField]
+    private  TextMeshProUGUI inputScore;
+
+    public UnityEvent<string, int> submitScoreEvent;
 
     int score = 0;
     int highscore = 0;
@@ -20,22 +28,31 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = score.ToString() + "POINTS";
+        scoreText.text = score.ToString() + " POINTS";
+        //inputScore.text = score.ToString() + " SCORE";
         highscoreText.text = "HIGHSCORE: " + highscore.ToString();
     }
 
+    //needs fix
     public void AddPoint()
     {
         score += 1;
         scoreText.text = score.ToString() + " PIONTS";
+        //inputScore.text = score.ToString() + " SCORE";
         if (highscore < score)
         {
             PlayerPrefs.SetInt("highscore", score);
         }
     }
 
+    //needs fix
     public void DeductPoint()
     {
         score -= 1;
+    }
+
+    public void SubmitScore()
+    {
+        submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
     }
 }
