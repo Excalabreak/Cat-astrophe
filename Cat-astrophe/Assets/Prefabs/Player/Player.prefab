@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 4060217656427326628}
   - component: {fileID: -3458902978347022830}
   - component: {fileID: 7943065515413968805}
+  - component: {fileID: 5561349584678525044}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -498,6 +499,32 @@ MonoBehaviour:
   scratchStrength: 1
   scratchTime: 0.5
   coneMR: {fileID: 8121329225706607005}
+--- !u!114 &5561349584678525044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414368184967431939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d795191c09a4d45837dd6688142b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 208552270061081177}
+  rb: {fileID: 2541072000076249326}
+  wallLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  climbSpeed: 10
+  maxClimbTime: 10
+  detectionLength: 0.7
+  sphereCastRadius: 0.25
+  maxWallLookAngle: 30
+  climbJumpUpForce: 14
+  climbJumpBackForce: 12
+  climbJumps: 1
+  minWallNormalAngle: 5
 --- !u!1 &2493056300344507635
 GameObject:
   m_ObjectHideFlags: 0
