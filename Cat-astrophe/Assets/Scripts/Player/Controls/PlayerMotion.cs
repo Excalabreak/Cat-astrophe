@@ -8,6 +8,7 @@ public class PlayerMotion : MonoBehaviour
     [SerializeField] private Transform cameraObject;
     private InputManager inputManager;
     private Rigidbody playerRigidBody;
+    private PlayerClimb playerClimb;
 
     //setable speeds in editor
     [SerializeField] private float moveSpeed = 7f;
@@ -39,6 +40,7 @@ public class PlayerMotion : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
         playerRigidBody = GetComponent<Rigidbody>();
+        playerClimb = GetComponent<PlayerClimb>();
     }
 
     /// <summary>
@@ -68,9 +70,8 @@ public class PlayerMotion : MonoBehaviour
         moveDirection = moveDirection + cameraObject.right * inputManager.HorizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
-        moveDirection = moveDirection * moveSpeed;
 
-        //playerRigidBody.velocity = moveDirection;
+        moveDirection = moveDirection * moveSpeed;
         playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
     }
 
@@ -134,5 +135,10 @@ public class PlayerMotion : MonoBehaviour
             playerVelocity.y = jumpVelocity;
             playerRigidBody.velocity = playerVelocity;
         }
-    }    
+    }   
+    
+    public bool IsGrounded
+    {
+        get { return isGrounded; }
+    }
 }
