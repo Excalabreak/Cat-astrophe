@@ -1515,10 +1515,10 @@ MonoBehaviour:
   detectionLength: 0.7
   sphereCastRadius: 0.25
   maxWallLookAngle: 30
-  climbJumpUpForce: 0
-  climbJumpBackForce: 0
-  climbJumps: 0
-  minWallNormalAngle: 0
+  climbJumpUpForce: 14
+  climbJumpBackForce: 12
+  climbJumps: 1
+  minWallNormalAngle: 5
 --- !u!54 &7925592587064625276 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 2541072000076249326, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
