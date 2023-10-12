@@ -238,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 457874322}
   - component: {fileID: 457874323}
+  - component: {fileID: 457874324}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -275,6 +276,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 655743878}
   ConeOfShameTextTime: 3
+--- !u!114 &457874324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457874321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801cfb7f09a015244842d6eac59b5c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!1 &655743876
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +381,7 @@ GameObject:
   - component: {fileID: 867348016}
   - component: {fileID: 867348015}
   - component: {fileID: 867348019}
+  - component: {fileID: 867348020}
   m_Layer: 0
   m_Name: BasicBreakableObjects
   m_TagString: Breakable
@@ -476,6 +491,20 @@ MonoBehaviour:
   baseMat: {fileID: 2100000, guid: 376a1a7f8ab399742a1374adccb8665d, type: 2}
   halfMat: {fileID: 2100000, guid: 52057c72f9a650b4cac0f40556174763, type: 2}
   destroyedMat: {fileID: 2100000, guid: a84dc0acea5032c429c1ee7f0877f053, type: 2}
+--- !u!114 &867348020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867348014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d1cdb4de9398e4997bb4d264056aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageScore: 1
+  destroyScore: 2
 --- !u!1 &997973681
 GameObject:
   m_ObjectHideFlags: 0
