@@ -8,6 +8,7 @@ public class PlayerMotion : MonoBehaviour
     [SerializeField] private Transform cameraObject;
     private InputManager inputManager;
     private Rigidbody playerRigidBody;
+    private PlayerClimb playerClimb;
 
     //setable speeds in editor
     [SerializeField] private float moveSpeed = 7f;
@@ -39,6 +40,7 @@ public class PlayerMotion : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
         playerRigidBody = GetComponent<Rigidbody>();
+        playerClimb = GetComponent<PlayerClimb>();
     }
 
     /// <summary>

@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     private InputManager inputManager;
     private PlayerMotion playerMotion;
     private CameraManager cameraManager;
+    private PlayerClimb playerClimb;
 
     /*
      * On Awake:
@@ -18,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
         playerMotion = GetComponent<PlayerMotion>();
+        playerClimb = GetComponent<PlayerClimb>();
         cameraManager = FindObjectOfType<CameraManager>();
     }
 
@@ -38,7 +40,9 @@ public class PlayerManager : MonoBehaviour
      */
     private void FixedUpdate()
     {
+        playerClimb.HandleClimbing();
         playerMotion.HandleAllMovement();
+
     }
 
     /*

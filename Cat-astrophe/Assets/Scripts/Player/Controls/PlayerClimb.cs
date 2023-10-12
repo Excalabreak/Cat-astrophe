@@ -18,6 +18,7 @@ public class PlayerClimb : MonoBehaviour
 
     //bool if player is climbing
     private bool climbing;
+    //private bool startedClimbing = false;
 
     //var to detect when player is next to a wall
     [SerializeField] private float detectionLength = .7f;
@@ -27,13 +28,25 @@ public class PlayerClimb : MonoBehaviour
     private RaycastHit frontWallHit;
     private bool wallFront;
 
+    //climb jump
+    private bool doClimbJump = false;
+    [SerializeField] private float climbJumpUpForce = 14f;
+    [SerializeField] private float climbJumpBackForce = 12f;
+
+    [SerializeField] private int climbJumps = 1;
+    private int climbJumpLeft;
+
+    private Transform lastWall;
+    private Vector3 lastWallNormal;
+    [SerializeField] private float minWallNormalAngle = 5;
+
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
         playerMotion = GetComponent<PlayerMotion>();
     }
 
-    private void Update()
+    public void HandleClimbing()
     {
         WallCheck();
 
@@ -46,7 +59,7 @@ public class PlayerClimb : MonoBehaviour
 
     private void StateMachine()
     {
-        if (wallFront && inputManager.VerticalInput > 0 && wallLookAngle < maxWallLookAngle)
+        if (wallFront && inputManager.VerticalInput >= 0 && wallLookAngle < maxWallLookAngle)
         {
             if (!climbing && climbTimer > 0)
             {
@@ -69,6 +82,12 @@ public class PlayerClimb : MonoBehaviour
                 StopClimbing();
             }
         }
+
+        if (wallFront && doClimbJump && climbJumpLeft > 0)
+        {
+            doClimbJump = false;
+            ClimbJump();
+        }
     }
 
     private void WallCheck()
@@ -76,24 +95,51 @@ public class PlayerClimb : MonoBehaviour
         wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward, out frontWallHit, detectionLength, wallLayers);
         wallLookAngle = Vector3.Angle(orientation.forward, -frontWallHit.normal);
 
-        if (playerMotion.IsGrounded)
+        bool newWall = frontWallHit.transform != lastWall || Mathf.Abs(Vector3.Angle(lastWallNormal, frontWallHit.normal)) > minWallNormalAngle;
+
+        if ((wallFront && newWall) || playerMotion.IsGrounded)
         {
             climbTimer = maxClimbTime;
+            climbJumpLeft = climbJumps;
         }
     }
 
     private void StartClimbing()
     {
         climbing = true;
+
+        lastWall = frontWallHit.transform;
+        lastWallNormal = frontWallHit.normal;
     }
 
     private void HandleClimbingMovement()
     {
-        rb.velocity = new Vector3(rb.velocity.x, climbSpeed, rb.velocity.z);
+        //rb.velocity.z
+        rb.velocity = new Vector3(0, climbSpeed * inputManager.VerticalInput, 0);
     }
 
     private void StopClimbing()
     {
         climbing = false;
+    }
+
+    private void ClimbJump()
+    {
+        Vector3 forceToApply = transform.up * climbJumpUpForce + frontWallHit.normal * climbJumpBackForce;
+
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(forceToApply, ForceMode.Impulse);
+
+        climbJumpLeft--;
+    }
+
+    public bool Climbing
+    {
+        get { return climbing; }
+    }
+
+    public bool DoClimbJump
+    {
+        set { doClimbJump = value; }
     }
 }
