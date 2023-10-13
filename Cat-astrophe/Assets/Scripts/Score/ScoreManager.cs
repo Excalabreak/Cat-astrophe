@@ -10,6 +10,9 @@ public class ScoreManager : MonoBehaviour
     //total score of the game
     [SerializeField] private int score = 0;
 
+    //bool so that devs can test resetScore
+    public bool testResetScore = false;
+
     //on awake, make this a singleton (and make sure there is only one)
     private void Awake()
     {
@@ -21,6 +24,24 @@ public class ScoreManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+
+    //this update is just to test the score reset
+    private void Update()
+    {
+        if (testResetScore)
+        {
+            testResetScore = false;
+            ResetScore();
+        }
+    }
+
+    /// <summary>
+    /// sets score to 0
+    /// </summary>
+    public void ResetScore()
+    {
+        score = 0;
     }
 
     /// <summary>
