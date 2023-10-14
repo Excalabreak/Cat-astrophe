@@ -3,28 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager instance;
+    //public static ScoreManager instance;
+
+    //public GameOverScreen GameOverScreen;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
 
-    [SerializeField]
-    private TMP_InputField inputName;
-    [SerializeField]
-    private  TextMeshProUGUI inputScore;
+   // [SerializeField]
+    //private TMP_InputField inputName;
+    //[SerializeField]
+    //private  TextMeshProUGUI inputScore;
 
-    public UnityEvent<string, int> submitScoreEvent;
+    //public UnityEvent<string, int> submitScoreEvent;
 
-    int score = 0;
+    static int score = 0;
     int highscore = 0;
+    //needs the total score
+    static int scoreGoal;
 
-    private void Awake()
-    {
-        instance = this;
-    }
+    //private void Awake()
+    //{
+        //instance = this;
+    //}
     // Start is called before the first frame update
     void Start()
     {
@@ -51,8 +56,28 @@ public class ScoreManager : MonoBehaviour
         score -= 1;
     }
 
-    public void SubmitScore()
+    //public void SubmitScore()
+    //{
+    // submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
+    //}
+
+    //only if the cone of shame and the timer runs out
+    // public void GameOver()
+    //{
+    //  GameOverScreen.Setup();
+    //}
+
+    private void OnGUI()
     {
-        submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
+        GUILayout.Box("score: " + score);
+    }
+
+    private void Update()
+    {
+        if (score >= scoreGoal)
+        {
+            score = 0;
+            SceneManager.LoadScene("3");
+        }
     }
 }
