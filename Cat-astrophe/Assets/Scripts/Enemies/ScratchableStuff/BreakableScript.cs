@@ -17,10 +17,14 @@ public class BreakableScript : MonoBehaviour
     //bool for when it can be damaged
     private bool invincible = false;
 
+    //script for points
+    private ScoreScript scoreScript;
+
     private void Awake()
     {
         currentHealth = maxHealth;
         mr = GetComponent<MeshRenderer>();
+        scoreScript = GetComponent<ScoreScript>();
     }
 
     /// <summary>
@@ -33,6 +37,14 @@ public class BreakableScript : MonoBehaviour
         {
             invincible = true;
             currentHealth = currentHealth - damage;
+            if (currentHealth == 0)
+            {
+                scoreScript.AddDestroyScore();
+            }
+            else if (true)
+            {
+                scoreScript.AddDamageScore();
+            }
 
             StartCoroutine(DamageBlink());
         }

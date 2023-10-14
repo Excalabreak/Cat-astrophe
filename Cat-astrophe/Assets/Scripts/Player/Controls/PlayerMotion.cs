@@ -8,9 +8,11 @@ public class PlayerMotion : MonoBehaviour
     [SerializeField] private Transform cameraObject;
     private InputManager inputManager;
     private Rigidbody playerRigidBody;
+    private PlayerClimb playerClimb;
 
     //setable speeds in editor
-    [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] private float startngMoveSpeed = 7f;
+    private float moveSpeed;
     [SerializeField] private float rotationSpeed = 15f;
 
     //vars for debuff when getting caught once
@@ -31,7 +33,8 @@ public class PlayerMotion : MonoBehaviour
 
     //variables for jumping
     [SerializeField] private float gravityIntensity = 3;
-    [SerializeField] private float jumpHeight = -15;
+    [SerializeField] private float startingJumpHeight = -30;
+    private float jumpHeight;
 
     //on awake:
     //sets the input manager and rigid body
@@ -39,6 +42,8 @@ public class PlayerMotion : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
         playerRigidBody = GetComponent<Rigidbody>();
+        playerClimb = GetComponent<PlayerClimb>();
+        ResetStats();
     }
 
     /// <summary>
@@ -52,6 +57,9 @@ public class PlayerMotion : MonoBehaviour
         HandleRotation();
     }
 
+    /// <summary>
+    /// applies debuf to moveSpeed and jumpHeight
+    /// </summary>
     public void HandleConeOfShame()
     {
         moveSpeed = moveSpeed - moveDebuff;
@@ -68,9 +76,8 @@ public class PlayerMotion : MonoBehaviour
         moveDirection = moveDirection + cameraObject.right * inputManager.HorizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
-        moveDirection = moveDirection * moveSpeed;
 
-        //playerRigidBody.velocity = moveDirection;
+        moveDirection = moveDirection * moveSpeed;
         playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
     }
 
@@ -125,6 +132,9 @@ public class PlayerMotion : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// handles the motions for jumping
+    /// </summary>
     public void HandleJump()
     {
         if (isGrounded)
@@ -134,5 +144,19 @@ public class PlayerMotion : MonoBehaviour
             playerVelocity.y = jumpVelocity;
             playerRigidBody.velocity = playerVelocity;
         }
-    }    
+    }   
+
+    /// <summary>
+    /// resets moveSpeed and jumpHeight to the original numbers
+    /// </summary>
+    public void ResetStats()
+    {
+        moveSpeed = startngMoveSpeed;
+        jumpHeight = startingJumpHeight;
+    }
+
+    public bool IsGrounded
+    {
+        get { return isGrounded; }
+    }
 }
