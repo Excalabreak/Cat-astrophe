@@ -5,8 +5,8 @@ using UnityEngine;
 public class BreakableScript : MonoBehaviour
 {
     //health of the object
-    [SerializeField] private int maxHealth = 3;
-    private int currentHealth;
+    [SerializeField] protected int maxHealth = 3;
+    protected int currentHealth;
 
     //materials for feedback of damage
     private MeshRenderer mr;
@@ -15,12 +15,12 @@ public class BreakableScript : MonoBehaviour
     [SerializeField] private Material destroyedMat;
 
     //bool for when it can be damaged
-    private bool invincible = false;
+    protected bool invincible = false;
 
     //script for points
-    private ScoreScript scoreScript;
+    protected ScoreScript scoreScript;
 
-    private void Awake()
+    protected void Awake()
     {
         currentHealth = maxHealth;
         mr = GetComponent<MeshRenderer>();
@@ -54,7 +54,7 @@ public class BreakableScript : MonoBehaviour
     /// calculates which mat should be showing
     /// </summary>
     /// <returns>material of current health</returns>
-    private Material SetMaterial()
+    private Material GetMaterial()
     {
         float healthPercent = (float)currentHealth / (float)maxHealth;
 
@@ -73,14 +73,14 @@ public class BreakableScript : MonoBehaviour
     }
 
     //feedback for when object gets damaged
-    private IEnumerator DamageBlink()
+    protected virtual IEnumerator DamageBlink()
     {
         for (int i = 0; i < 5; i++)
         {
             mr.material = destroyedMat;
             yield return new WaitForSeconds(.1f);
 
-            mr.material = SetMaterial();
+            mr.material = GetMaterial();
             yield return new WaitForSeconds(.1f);
         }
         if (currentHealth > 0)

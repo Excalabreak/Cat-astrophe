@@ -818,6 +818,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 704359746688032324, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 714079796410306683, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919746884861810737, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     - target: {fileID: 3091723073123917949, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_Name
       value: EnemyCamera
@@ -826,9 +838,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3091723073123917949, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064572337481342237, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     - target: {fileID: 5407443130102194555, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_LocalScale.x
       value: 7.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229109581594534772, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7847377975171763718, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_LocalPosition.x
@@ -836,7 +860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7847377975171763718, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.43
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 7847377975171763718, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_LocalPosition.z
