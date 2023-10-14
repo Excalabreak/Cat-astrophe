@@ -45,7 +45,10 @@ public class PlayerMotion : MonoBehaviour
         playerClimb = GetComponent<PlayerClimb>();
         ResetStats();
     }
-
+    private void Update()
+    {
+        if (PauseManager.paused) return;
+    }
     /// <summary>
     /// Calls all Handle functions in this script
     /// (Movement, Rotation)

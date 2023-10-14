@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class GameScoreManager : MonoBehaviour
 {
     //make this a singleton
-    private static ScoreManager instance;
+    private static GameScoreManager instance;
 
     //total score of the game
     [SerializeField] private int score = 0;
@@ -53,7 +53,7 @@ public class ScoreManager : MonoBehaviour
         score = score + s;
     }
 
-    public static ScoreManager Instance
+    public static GameScoreManager Instance
     {
         get { return instance; }
     }
@@ -63,3 +63,4 @@ public class ScoreManager : MonoBehaviour
         get { return score; }
     }
 }
+

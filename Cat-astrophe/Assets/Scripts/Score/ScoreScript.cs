@@ -10,11 +10,11 @@ public class ScoreScript : MonoBehaviour
 
     public void AddDamageScore()
     {
-        ScoreManager.Instance.AddToScore(damageScore);
+        GameScoreManager.Instance.AddToScore(damageScore);
     }
 
     public void AddDestroyScore()
     {
-        ScoreManager.Instance.AddToScore(destroyScore);
+        GameScoreManager.Instance.AddToScore(destroyScore);
     }
 }
