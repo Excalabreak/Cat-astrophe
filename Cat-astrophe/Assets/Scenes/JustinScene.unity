@@ -135,8 +135,9 @@ GameObject:
   - component: {fileID: 65184159}
   - component: {fileID: 65184158}
   - component: {fileID: 65184157}
+  - component: {fileID: 65184161}
   m_Layer: 0
-  m_Name: Catnip
+  m_Name: Treat
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +184,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dec32e37ed3368f4a82ff17d56eb7025, type: 2}
+  - {fileID: 2100000, guid: d285e56b6b694b048acaa24fcd5b0feb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -228,6 +229,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &65184161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65184156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037aa3906be956c44a7a7cca295081fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &272341462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,9 +1613,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 287829141737123382, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+      propertyPath: treatTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 287829141737123382, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 1410979268}
+    - target: {fileID: 287829141737123382, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+      propertyPath: jumpTreatBuff
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 287829141737123382, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+      propertyPath: moveTreatBuff
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 287829141737123382, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 129
