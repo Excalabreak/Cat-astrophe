@@ -77,7 +77,7 @@ public class ScoreManager : MonoBehaviour
         if (score >= scoreGoal)
         {
             score = 0;
-            SceneManager.LoadScene("3");
+            //SceneManager.LoadScene("3");
         }
     }
 }

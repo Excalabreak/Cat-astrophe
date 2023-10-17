@@ -48,6 +48,7 @@ public class PauseManager : MonoBehaviour
         AudioListener.pause = true;
         paused = true;
         pauseMenu.SetActive(true);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
     public void ResumeGame()
@@ -56,16 +57,19 @@ public class PauseManager : MonoBehaviour
         AudioListener.pause = false;
         paused = false;
         pauseMenu.SetActive(false);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
         Debug.Log("Quitting");
     }
 }
