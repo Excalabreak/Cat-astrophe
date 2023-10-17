@@ -407,7 +407,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  testResetScore: 0
 --- !u!1 &655743876
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +609,7 @@ MonoBehaviour:
   baseMat: {fileID: 2100000, guid: 376a1a7f8ab399742a1374adccb8665d, type: 2}
   halfMat: {fileID: 2100000, guid: 52057c72f9a650b4cac0f40556174763, type: 2}
   destroyedMat: {fileID: 2100000, guid: a84dc0acea5032c429c1ee7f0877f053, type: 2}
+  destroyScore: 2
 --- !u!114 &867348020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,8 +622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d1cdb4de9398e4997bb4d264056aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageScore: 1
-  destroyScore: 2
 --- !u!1 &997973681
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +941,10 @@ PrefabInstance:
     - target: {fileID: 714079796410306683, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_TagString
       value: Breakable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551100251810408518, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: destroyScore
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2919746884861810737, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_TagString

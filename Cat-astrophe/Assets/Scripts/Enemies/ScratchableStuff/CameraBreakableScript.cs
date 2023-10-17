@@ -18,6 +18,24 @@ public class CameraBreakableScript : BreakableScript
         mr2.material = baseMat2;
     }
 
+    public override void DamageObject(int damage)
+    {
+        if (currentHealth > 0 && !invincible)
+        {
+            invincible = true;
+
+            currentHealth = currentHealth - damage;
+
+            if (currentHealth <= 0)
+            {
+                scoreScript.AddScore(destroyScore);
+            }
+
+
+            StartCoroutine(DamageBlink());
+        }
+    }
+
     protected override IEnumerator DamageBlink()
     {
         for (int i = 0; i < 5; i++)

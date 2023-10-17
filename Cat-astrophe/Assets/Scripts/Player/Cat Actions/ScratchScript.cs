@@ -27,23 +27,12 @@ public class ScratchScript : MonoBehaviour
     //vars for cone of shame
     [SerializeField] private MeshRenderer coneMR;
 
-    //bool to reset cone of shame
-    public bool testConeReset = false;
 
     private void Awake()
     {
         playerMotion = GetComponent<PlayerMotion>();
         playerDetected = GetComponent<PlayerDetected>();
         scratchMR = scratchCollider.GetComponent<MeshRenderer>();
-    }
-
-    private void Update()
-    {
-        if (testConeReset)
-        {
-            testConeReset = false;
-            ResetConeOfShame();
-        }
     }
 
     //turns isScratching on

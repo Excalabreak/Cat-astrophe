@@ -17,8 +17,9 @@ public class BreakableScript : MonoBehaviour
     //bool for when it can be damaged
     protected bool invincible = false;
 
-    //script for points
+    //stuff for points
     protected ScoreScript scoreScript;
+    [SerializeField] protected int destroyScore = 3;
 
     protected void Awake()
     {
@@ -31,20 +32,31 @@ public class BreakableScript : MonoBehaviour
     /// this will get called when the object gets damage
     /// </summary>
     /// <param name="damage">how much damage does object take</param>
-    public void DamageObject(int damage)
+    public virtual void DamageObject(int damage)
     {
         if (currentHealth > 0 && !invincible)
         {
+            int damageScore;
+
             invincible = true;
+
+            if (currentHealth >= damage)
+            {
+                damageScore = damage;
+            }
+            else
+            {
+                damageScore = damage - currentHealth;
+            }
+
             currentHealth = currentHealth - damage;
-            if (currentHealth == 0)
+
+            scoreScript.AddScore(damageScore);
+            if (currentHealth <= 0)
             {
-                scoreScript.AddDestroyScore();
+                scoreScript.AddScore(destroyScore);
             }
-            else if (true)
-            {
-                scoreScript.AddDamageScore();
-            }
+            
 
             StartCoroutine(DamageBlink());
         }
