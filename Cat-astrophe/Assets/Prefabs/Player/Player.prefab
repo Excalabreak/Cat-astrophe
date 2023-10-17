@@ -810,7 +810,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   playerCameraTransform: {fileID: 7444050748837502073}
-  pickUpUI: {fileID: 0}
+  pickUpUI: {fileID: 3602152913866095411}
   hitRange: 3
   pickUpParent: {fileID: 7444050748837502073}
   inHandItem: {fileID: 0}
@@ -819,7 +819,7 @@ MonoBehaviour:
   dropInput: {fileID: -6423910028357822370, guid: 65cecda21785a6a4eb715974efaae9f0, type: 3}
   useInput: {fileID: 6756177210138665907, guid: 65cecda21785a6a4eb715974efaae9f0, type: 3}
   useToss: {fileID: 8626681132314359014, guid: 65cecda21785a6a4eb715974efaae9f0, type: 3}
-  pickUpSource: {fileID: 0}
+  pickUpSource: {fileID: 5889085586609855826}
 --- !u!1 &2493056300344507635
 GameObject:
   m_ObjectHideFlags: 0
