@@ -1213,6 +1213,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 709559348367897886, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 709559348367897886, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 709559348367897886, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 709559348367897886, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 709559348367897886, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 709559348367897886, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 869572261907672443, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1220,6 +1244,10 @@ PrefabInstance:
     - target: {fileID: 1485816645666750701, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
       propertyPath: m_Name
       value: Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343795880070008231, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+      propertyPath: m_Name
+      value: Time Slider
       objectReference: {fileID: 0}
     - target: {fileID: 8504076475586919364, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1260,6 +1288,14 @@ PrefabInstance:
     - target: {fileID: 8504076475586919364, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643213078029848694, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643213078029848694, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+      propertyPath: sliderTime
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

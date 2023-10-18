@@ -7,26 +7,28 @@ public class TimerBox : MonoBehaviour
 {
     //Variables for UI
     [SerializeField] Slider sliderObj;
-    private float sliderTime = 5f;
+    [SerializeField] float sliderTime = 5f;
 
-    // Start is called before the first frame update
-    private void Start()
+    // Awake is called at the start
+    private void Awake()
     {
         sliderObj.maxValue = sliderTime;
-        sliderObj.value = sliderTime;
-        TimeOut();
     }
 
-    // Function for TimeOut
-    private void TimeOut()
+    // OnEnable is called every frame
+    private void OnEnable()
     {
+        sliderObj.value = sliderTime;
         StartCoroutine(ToWait());
     }
 
     // Corutine for timing
     IEnumerator ToWait()
     {
-        sliderTime -= Time.deltaTime;
-        yield return new WaitForSeconds(0.001f);   
+        while (sliderObj.value > 0)
+        {
+            sliderObj.value = sliderObj.value - 1f;
+            yield return new WaitForSeconds(1f);
+        }
     }
 }
