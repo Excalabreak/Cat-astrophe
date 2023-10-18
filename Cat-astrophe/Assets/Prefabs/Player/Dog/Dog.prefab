@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5751434856735841618}
   - component: {fileID: 616439922158144651}
   - component: {fileID: 8114393104284207874}
+  - component: {fileID: 2440317618515202596}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -105,7 +106,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -209,6 +210,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2440317618515202596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786975391098231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1175aeb5a1e02c438c7a546039d3ab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  box: {fileID: 8504076475586919364, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+  back: {fileID: 5740194139686562935, guid: 1e59ddd48e8e4dc40b25679dc1a68457, type: 3}
+  dogo: {fileID: 7314637973473895868}
 --- !u!1 &344030280248752415
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,5 +873,4 @@ MonoBehaviour:
   moveSpeed: 4
   bark: {fileID: 8114393104284207874}
   minDist: 5
-  cat: {fileID: 0}
   sighted: 1

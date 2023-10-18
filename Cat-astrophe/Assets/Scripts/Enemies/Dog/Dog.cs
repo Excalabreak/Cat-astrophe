@@ -9,7 +9,6 @@ public class Dog : MonoBehaviour
     [SerializeField] float moveSpeed = 4;
     [SerializeField] AudioSource bark;
     [SerializeField] float minDist = 0;
-    [SerializeField] Transform cat;
     [SerializeField] bool sighted;
 
     // Awake is called before the first frame update
@@ -33,7 +32,7 @@ public class Dog : MonoBehaviour
     //First encounter
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform == cat)
+        if (other.transform == GameObject.FindGameObjectWithTag("Player").transform)
         {
             bark.Play();
         }
@@ -42,19 +41,17 @@ public class Dog : MonoBehaviour
     //Sighted
     private void OnTriggerStay(Collider other)
     {
-       //CatFound();
 
-        if (other.transform == cat)
+        if (other.transform == GameObject.FindGameObjectWithTag("Player").transform)
         {
             sighted = true;
-            //bark.Play();
         }
     }
 
     //Not sighted
     private void OnTriggerExit(Collider other)
     {
-        if(other.transform == cat)
+        if(other.transform == GameObject.FindGameObjectWithTag("Player").transform)
         {
             sighted = false;
             bark.Stop();
@@ -64,10 +61,10 @@ public class Dog : MonoBehaviour
     //Move
     private void CatFound()
     {
-        Vector3 lookingCat = cat.transform.position;
+        Vector3 lookingCat = GameObject.FindGameObjectWithTag("Player").transform.position;
         lookingCat.y = transform.position.y;
         transform.LookAt(lookingCat);
-        if (Vector3.Distance(transform.position, cat.transform.position) >= minDist)
+        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= minDist)
         {
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
