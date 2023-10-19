@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class ScoreScript : MonoBehaviour
 {
-    //ints for how many points is awarded when damaged or destroy
-    [SerializeField] private int damageScore = 1;
-    [SerializeField] private int destroyScore = 2;
-
-    public void AddDamageScore()
+    /// <summary>
+    /// adds score to score manager
+    /// </summary>
+    /// <param name="s">how many points does the player get</param>
+    public void AddScore(int s)
     {
-        GameScoreManager.Instance.AddToScore(damageScore);
-    }
-
-    public void AddDestroyScore()
-    {
-        GameScoreManager.Instance.AddToScore(destroyScore);
+        GameScoreManager.Instance.AddToScore(s);
     }
 }
