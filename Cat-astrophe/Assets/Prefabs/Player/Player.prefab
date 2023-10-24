@@ -580,6 +580,8 @@ MonoBehaviour:
   moveTreatBuff: 5
   jumpTreatBuff: 15
   treatTime: 10
+  blanketMoveDebuff: 1
+  blanketJumpDebuff: 15
   rayCastHeightOffset: 0.5
   leapingVelocity: 3
   fallingSpeed: 33
@@ -620,6 +622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertModel: {fileID: 2785654662436326668}
   blanketModel: {fileID: 1254798971638215269}
+  blanketTime: 15
 --- !u!114 &7943065515413968805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,8 +663,8 @@ MonoBehaviour:
   detectionLength: 0.7
   sphereCastRadius: 0.25
   maxWallLookAngle: 30
-  climbJumpUpForce: 14
-  climbJumpBackForce: 12
+  climbJumpUpForce: 16
+  climbJumpBackForce: 14
   climbJumps: 1
   minWallNormalAngle: 5
 --- !u!114 &5437115571643464895

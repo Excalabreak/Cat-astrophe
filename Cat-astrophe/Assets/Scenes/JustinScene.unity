@@ -2118,6 +2118,14 @@ PrefabInstance:
       propertyPath: maxClimbTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5561349584678525044, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+      propertyPath: climbJumpUpForce
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561349584678525044, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+      propertyPath: climbJumpBackForce
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 5889085586609855826, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
       propertyPath: m_Volume
       value: 0.38

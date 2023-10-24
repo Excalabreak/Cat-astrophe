@@ -59,7 +59,7 @@ public class PlayerClimb : MonoBehaviour
 
     private void StateMachine()
     {
-        if (wallFront && inputManager.VerticalInput >= 0 && wallLookAngle < maxWallLookAngle)
+        if (wallFront && (Mathf.Abs(inputManager.VerticalInput) >= 0 || Mathf.Abs(inputManager.HorizontalInput) >= 0) && wallLookAngle < maxWallLookAngle)
         {
             if (!climbing && climbTimer > 0)
             {
@@ -115,7 +115,14 @@ public class PlayerClimb : MonoBehaviour
     private void HandleClimbingMovement()
     {
         //rb.velocity.z
-        rb.velocity = new Vector3(0, climbSpeed * inputManager.VerticalInput, 0);
+        if (Mathf.Abs(inputManager.VerticalInput) >= Mathf.Abs(inputManager.HorizontalInput))
+        {
+            rb.velocity = new Vector3(0, climbSpeed * Mathf.Abs(inputManager.VerticalInput), 0);
+        }
+        else
+        {
+            rb.velocity = new Vector3(0, climbSpeed * Mathf.Abs(inputManager.HorizontalInput), 0);
+        }
     }
 
     private void StopClimbing()
