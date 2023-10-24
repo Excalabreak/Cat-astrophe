@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
-
-    public void Setup(int score)
+    public void Restart()
     {
-        gameObject.SetActive(true);
-        scoreText.text = score.ToString() + " POINTS";
+        SceneManager.LoadScene(1);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 }
