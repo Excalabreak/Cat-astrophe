@@ -2017,6 +2017,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3582891939404706148, guid: 0e7f645594cfa6841b2ded1b248ae032, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428104184382164425, guid: 0e7f645594cfa6841b2ded1b248ae032, type: 3}
+      propertyPath: collisionLayers.m_Bits
+      value: 385
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2152,9 +2160,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 457874322}
-  - {fileID: 4122629315428694142}
   - {fileID: 1162642554}
   - {fileID: 272341466}
+  - {fileID: 4122629315428694142}
   - {fileID: 7925592587064625266}
   - {fileID: 1451547720}
   - {fileID: 997973685}
