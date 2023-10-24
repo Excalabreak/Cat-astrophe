@@ -40,12 +40,16 @@ public class PlayerClimb : MonoBehaviour
     private Vector3 lastWallNormal;
     [SerializeField] private float minWallNormalAngle = 5;
 
+    //get the other scripts
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
         playerMotion = GetComponent<PlayerMotion>();
     }
 
+    /// <summary>
+    /// called every frame to climb
+    /// </summary>
     public void HandleClimbing()
     {
         WallCheck();
@@ -57,6 +61,9 @@ public class PlayerClimb : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// state machine for how to climb
+    /// </summary>
     private void StateMachine()
     {
         if (wallFront && (Mathf.Abs(inputManager.VerticalInput) >= 0 || Mathf.Abs(inputManager.HorizontalInput) >= 0) && wallLookAngle < maxWallLookAngle)
@@ -90,6 +97,9 @@ public class PlayerClimb : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// checks if the wall is infront of the player
+    /// </summary>
     private void WallCheck()
     {
         wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward, out frontWallHit, detectionLength, wallLayers);
@@ -104,6 +114,9 @@ public class PlayerClimb : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// called when the player starts climbing
+    /// </summary>
     private void StartClimbing()
     {
         climbing = true;
@@ -112,6 +125,9 @@ public class PlayerClimb : MonoBehaviour
         lastWallNormal = frontWallHit.normal;
     }
 
+    /// <summary>
+    /// makes player go up when climbing
+    /// </summary>
     private void HandleClimbingMovement()
     {
         //rb.velocity.z
@@ -125,11 +141,17 @@ public class PlayerClimb : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// called when the player starts climbing
+    /// </summary>
     private void StopClimbing()
     {
         climbing = false;
     }
 
+    /// <summary>
+    /// jump when still climbing
+    /// </summary>
     private void ClimbJump()
     {
         Vector3 forceToApply = transform.up * climbJumpUpForce + frontWallHit.normal * climbJumpBackForce;
