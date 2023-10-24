@@ -150,7 +150,7 @@ public class PlayerClimb : MonoBehaviour
     }
 
     /// <summary>
-    /// jump when still climbing
+    /// jump when climbing
     /// </summary>
     private void ClimbJump()
     {
