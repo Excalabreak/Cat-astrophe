@@ -7,65 +7,50 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-    //public static ScoreManager instance;
-
-    //public GameOverScreen GameOverScreen;
+    public static ScoreManager instance;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
-
-   // [SerializeField]
-    //private TMP_InputField inputName;
-    //[SerializeField]
-    //private  TextMeshProUGUI inputScore;
-
-    //public UnityEvent<string, int> submitScoreEvent;
 
     static int score = 0;
     int highscore = 0;
     //needs the total score
     static int scoreGoal;
 
-    //private void Awake()
-    //{
-        //instance = this;
-    //}
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        highscore = PlayerPrefs.GetInt("highscore", 0);
         scoreText.text = score.ToString() + " POINTS";
-        //inputScore.text = score.ToString() + " SCORE";
         highscoreText.text = "HIGHSCORE: " + highscore.ToString();
     }
 
     //needs fix
     public void AddPoint()
     {
-        score += 1;
-        scoreText.text = score.ToString() + " PIONTS";
-        //inputScore.text = score.ToString() + " SCORE";
+        score += 5;
+        scoreText.text = score.ToString() + " POINTS";
         if (highscore < score)
         {
             PlayerPrefs.SetInt("highscore", score);
+        }
+        else
+        {
+            highscoreText.text = "Highscore: 0".ToString();
         }
     }
 
     //needs fix
     public void DeductPoint()
     {
-        score -= 1;
+        score -= 5;
+        scoreText.text = score.ToString() + " POINTS";
     }
-
-    //public void SubmitScore()
-    //{
-    // submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
-    //}
-
-    //only if the cone of shame and the timer runs out
-    // public void GameOver()
-    //{
-    //  GameOverScreen.Setup();
-    //}
 
     private void OnGUI()
     {
@@ -77,7 +62,11 @@ public class ScoreManager : MonoBehaviour
         if (score >= scoreGoal)
         {
             score = 0;
-            SceneManager.LoadScene("3");
+        }
+        else
+        {
+            score = -10;
+            SceneManager.LoadScene(2);
         }
     }
 }

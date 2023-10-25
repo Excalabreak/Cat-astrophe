@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            ScoreManager.instance.AddPoint();
+            Destroy(this.gameObject);
+           
+        }
     }
 }
