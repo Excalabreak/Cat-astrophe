@@ -468,6 +468,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  testResetScore: 0
+--- !u!23 &614112372 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 566914251876205467, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+  m_PrefabInstance: {fileID: 1315746447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &655743876
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +684,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867348014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d1cdb4de9398e4997bb4d264056aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &993632871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3091723073123917949, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+  m_PrefabInstance: {fileID: 1315746447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &993632872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993632871}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77d1cdb4de9398e4997bb4d264056aef, type: 3}
@@ -1008,6 +1031,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!23 &1232081294 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4851750216502269080, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+  m_PrefabInstance: {fileID: 1315746447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1239488002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,9 +1149,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6617667645131312403, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: mr1
+      value: 
+      objectReference: {fileID: 1232081294}
+    - target: {fileID: -6617667645131312403, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: mr2
+      value: 
+      objectReference: {fileID: 614112372}
     - target: {fileID: 704359746688032324, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 704359746688032324, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 714079796410306683, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: m_Name
+      value: cam lens
       objectReference: {fileID: 0}
     - target: {fileID: 714079796410306683, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_TagString
@@ -1150,6 +1194,10 @@ PrefabInstance:
       value: Breakable
       objectReference: {fileID: 0}
     - target: {fileID: 5064572337481342237, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: m_Name
+      value: cam body
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064572337481342237, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_TagString
       value: Breakable
       objectReference: {fileID: 0}
@@ -1159,6 +1207,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7229109581594534772, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229109581594534772, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7847377975171763718, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
@@ -1204,7 +1256,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3091723073123917949, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 993632872}
   m_SourcePrefab: {fileID: 100100000, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
 --- !u!4 &1370516524 stripped
 Transform:

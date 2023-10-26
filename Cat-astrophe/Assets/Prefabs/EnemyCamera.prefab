@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 7847377975171763718}
   - component: {fileID: 2223299668913883434}
   - component: {fileID: 2706356878122591732}
+  - component: {fileID: -6617667645131312403}
   m_Layer: 0
   m_Name: EnemyCamera
   m_TagString: Untagged
@@ -216,6 +217,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-6617667645131312403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3091723073123917949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2141b184639de0e47a9aae9ceb953255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  baseMat: {fileID: 0}
+  halfMat: {fileID: 0}
+  destroyedMat: {fileID: 0}
+  destroyScore: 3
+  mr1: {fileID: 0}
+  mr2: {fileID: 0}
+  baseMat1: {fileID: 2100000, guid: 5336a51631e60bf419a1a3147fd785fd, type: 2}
+  baseMat2: {fileID: 2100000, guid: 8a42584339d7df445b6892d60149a037, type: 2}
+  damageMat: {fileID: 2100000, guid: a84dc0acea5032c429c1ee7f0877f053, type: 2}
 --- !u!1 &5064572337481342237
 GameObject:
   m_ObjectHideFlags: 0
