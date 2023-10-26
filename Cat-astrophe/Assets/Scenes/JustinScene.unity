@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -689,23 +689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d1cdb4de9398e4997bb4d264056aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &993632871 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3091723073123917949, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
-  m_PrefabInstance: {fileID: 1315746447}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &993632872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993632871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d1cdb4de9398e4997bb4d264056aef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &997973681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,10 +1239,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3091723073123917949, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 993632872}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf979c18a2c25e34fa38d8a30a3d0b10, type: 3}
 --- !u!4 &1370516524 stripped
 Transform:
@@ -1274,17 +1254,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 869572261907672443, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1485816645666750701, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
       propertyPath: m_Name
       value: Box
       objectReference: {fileID: 0}
     - target: {fileID: 2585746287754744796, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2585746287754744796, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8504076475586919364, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
       propertyPath: m_LocalPosition.x
