@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5784228200888941642}
   - component: {fileID: 3344533117318819246}
   - component: {fileID: 1174892426388068928}
+  - component: {fileID: 9127600474089953540}
   m_Layer: 0
   m_Name: BasicBreakableObjects
   m_TagString: Breakable
@@ -119,7 +120,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 6
-  currentHealth: 0
   baseMat: {fileID: 2100000, guid: 376a1a7f8ab399742a1374adccb8665d, type: 2}
   halfMat: {fileID: 2100000, guid: 52057c72f9a650b4cac0f40556174763, type: 2}
   destroyedMat: {fileID: 2100000, guid: a84dc0acea5032c429c1ee7f0877f053, type: 2}
+  destroyScore: 2
+--- !u!114 &9127600474089953540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388736053069183394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d1cdb4de9398e4997bb4d264056aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
