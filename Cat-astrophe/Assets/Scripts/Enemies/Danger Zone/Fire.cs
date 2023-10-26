@@ -17,9 +17,9 @@ public class Fire : MonoBehaviour
         
     }
 
-    private IEnumarator
+    private IEnumerator FireOn()
     {
-        
+        yield return new WaitForSeconds(5f);
     }
 
 }
