@@ -54,8 +54,8 @@ public class Pickup : MonoBehaviour
     private void Toss(InputAction.CallbackContext obj)
     {
         inHandItem.GetComponent<Rigidbody>().isKinematic = false;
-        inHandItem.transform.SetParent(null);
         inHandItem.GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
+        inHandItem.transform.SetParent(null);
         inHandItem = null;
     }
 

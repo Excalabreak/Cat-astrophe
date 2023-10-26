@@ -42,7 +42,7 @@ public class Dog : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        if (other.transform == GameObject.FindGameObjectWithTag("Player").transform)
+        if (other.transform == GameObject.FindGameObjectWithTag("Player").transform && !other.gameObject.GetComponent<PlayerDetected>().Blanket)
         {
             sighted = true;
         }
