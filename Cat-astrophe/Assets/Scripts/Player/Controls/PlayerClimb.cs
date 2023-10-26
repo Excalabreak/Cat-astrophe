@@ -155,7 +155,7 @@ public class PlayerClimb : MonoBehaviour
     private void ClimbJump()
     {
         Vector3 forceToApply = transform.up * climbJumpUpForce + frontWallHit.normal * climbJumpBackForce;
-        Debug.Log(forceToApply);
+        //Debug.Log(forceToApply);
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         //rb.velocity = forceToApply;
