@@ -24,6 +24,10 @@ public class PlayerMotion : MonoBehaviour
     [SerializeField] private float jumpTreatBuff = 10f;
     [SerializeField] private float treatTime = 10f;
 
+    //vars for debuffs when wearing blanket
+    [SerializeField] private float blanketMoveDebuff = 1f;
+    [SerializeField] private float blanketJumpDebuff = 15f;
+
     //the direction where it rotates
     private Vector3 moveDirection;
 
@@ -71,9 +75,30 @@ public class PlayerMotion : MonoBehaviour
         jumpHeight = jumpHeight + jumpConeDebuff;
     }
 
+    /// <summary>
+    /// starts coroutine for treat buff
+    /// </summary>
     public void HandleTreats()
     {
         StartCoroutine(TreatBuff());
+    }
+
+    /// <summary>
+    /// applies debuff from getting blanket power up
+    /// </summary>
+    public void HandleBlanketDebuff()
+    {
+        moveSpeed = moveSpeed - blanketMoveDebuff;
+        jumpHeight = jumpHeight + blanketJumpDebuff;
+    }
+
+    /// <summary>
+    /// removees debuffs from blanket power up
+    /// </summary>
+    public void RemoveBlanketDebuff()
+    {
+        moveSpeed = moveSpeed + blanketMoveDebuff;
+        jumpHeight = jumpHeight - blanketJumpDebuff;
     }
 
     /// <summary>
