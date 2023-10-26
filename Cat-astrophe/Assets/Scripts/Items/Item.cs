@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.gameObject.tag == "Environment")
+        if (Input.GetKey(KeyCode.Tab))
         {
-            ScoreManager.scoreCount +=1 ;
+            ScoreManager.instance.AddPoint();
             Destroy(this.gameObject);
+           
         }
     }
 }
