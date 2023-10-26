@@ -7,66 +7,37 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager instance;
-
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
 
-    static int score = 0;
-    int highscore = 0;
-    //needs the total score
-    static int scoreGoal;
-
-    private void Awake()
-    {
-        instance = this;
-    }
+    public static int scoreCount;
+    public static int highScoreCount;
 
     // Start is called before the first frame update
     void Start()
     {
-        highscore = PlayerPrefs.GetInt("highscore", 0);
-        scoreText.text = score.ToString() + " POINTS";
-        highscoreText.text = "HIGHSCORE: " + highscore.ToString();
-    }
-
-    //needs fix
-    public void AddPoint()
-    {
-        score += 5;
-        scoreText.text = score.ToString() + " POINTS";
-        if (highscore < score)
+        if (PlayerPrefs.HasKey("HighScore"))
         {
-            PlayerPrefs.SetInt("highscore", score);
+            highScoreCount = PlayerPrefs.GetInt("HighScore");
         }
-        else
-        {
-            highscoreText.text = "Highscore: 0".ToString();
-        }
-    }
-
-    //needs fix
-    public void DeductPoint()
-    {
-        score -= 5;
-        scoreText.text = score.ToString() + " POINTS";
-    }
-
-    private void OnGUI()
-    {
-        GUILayout.Box("score: " + score);
     }
 
     private void Update()
     {
-        if (score >= scoreGoal)
+        //highscore record
+        if (scoreCount > highScoreCount)
         {
-            score = 0;
+            highScoreCount = scoreCount;
+            PlayerPrefs.SetInt("HighScore", highScoreCount);
         }
-        else
-        {
-            score = -10;
-            SceneManager.LoadScene(2);
-        }
+
+        //score count in UI and can add from other scripts
+        scoreText.text = "Score: " + Mathf.Round(scoreCount);
+        highscoreText.text = "HighScore: " + highScoreCount;
+    }
+
+    void OnDisable()
+    {
+        PlayerPrefs.SetInt("Score: ", scoreCount);
     }
 }
