@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 2086799774187780832}
   m_Layer: 0
   m_Name: EnemyCamera
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,8 +257,8 @@ MonoBehaviour:
   halfMat: {fileID: 0}
   destroyedMat: {fileID: 0}
   destroyScore: 3
-  mr1: {fileID: 0}
-  mr2: {fileID: 0}
+  mr1: {fileID: 4851750216502269080}
+  mr2: {fileID: 566914251876205467}
   baseMat1: {fileID: 2100000, guid: 5336a51631e60bf419a1a3147fd785fd, type: 2}
   baseMat2: {fileID: 2100000, guid: 8a42584339d7df445b6892d60149a037, type: 2}
   damageMat: {fileID: 2100000, guid: a84dc0acea5032c429c1ee7f0877f053, type: 2}
