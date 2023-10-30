@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Dog : MonoBehaviour
 {
     //Variable for enemy movement
-    [SerializeField] float moveSpeed = 4;
+    [SerializeField] float moveSpeed = 5f;
     [SerializeField] AudioSource bark;
     [SerializeField] float minDist = 0;
     [SerializeField] bool sighted;

@@ -111,7 +111,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.65
-  m_Height: 1.54
+  m_Height: 1.83
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &8114393104284207874
@@ -225,6 +225,7 @@ MonoBehaviour:
   box: {fileID: 8504076475586919364, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
   back: {fileID: 5740194139686562935, guid: 1e59ddd48e8e4dc40b25679dc1a68457, type: 3}
   dogo: {fileID: 7314637973473895868}
+  restricter: {fileID: 616439922158144651}
 --- !u!1 &344030280248752415
 GameObject:
   m_ObjectHideFlags: 0
