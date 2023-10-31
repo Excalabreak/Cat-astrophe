@@ -28,7 +28,7 @@ public class CameraBreakableScript : BreakableScript
 
             if (currentHealth <= 0)
             {
-                scoreScript.AddScore(destroyScore);
+                //scoreScript.AddScore(destroyScore);
             }
 
 

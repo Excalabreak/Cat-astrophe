@@ -51,10 +51,10 @@ public class BreakableScript : MonoBehaviour
 
             currentHealth = currentHealth - damage;
 
-            scoreScript.AddScore(damageScore);
+            //scoreScript.AddScore(damageScore);
             if (currentHealth <= 0)
             {
-                scoreScript.AddScore(destroyScore);
+                //scoreScript.AddScore(destroyScore);
             }
             
 
