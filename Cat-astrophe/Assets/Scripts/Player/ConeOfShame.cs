@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ConeOfShame : MonoBehaviour
 {
     private PlayerMotion playerMotion;
     private ScratchScript scratchScript;
+
+    private bool wasWarned = false;
 
     //mesh renderer for cone of shame
     [SerializeField] private MeshRenderer coneMR;
@@ -18,8 +21,15 @@ public class ConeOfShame : MonoBehaviour
 
     public void AddConeOfShame()
     {
+        wasWarned = true;
         coneMR.enabled = true;
         playerMotion.HandleConeOfShame();
+    }
+
+    public void OnGameOver()
+    {
+        SceneManager.LoadScene(2);
+        gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -29,6 +39,11 @@ public class ConeOfShame : MonoBehaviour
     {
         coneMR.enabled = false;
         playerMotion.ResetStats();
-        scratchScript.WasWarned = false;
+        wasWarned = false;
+    }
+
+    public bool WasWarned
+    {
+        get { return wasWarned; }
     }
 }

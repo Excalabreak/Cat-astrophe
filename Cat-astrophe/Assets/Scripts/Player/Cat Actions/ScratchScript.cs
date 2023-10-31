@@ -6,7 +6,7 @@ public class ScratchScript : MonoBehaviour
 {
     //vars for getting caught damaging objects
     private PlayerDetected playerDetected;
-    private bool wasWarned = false;
+    //private bool wasWarned = false;
     private bool caughtScraching = false;
 
     //vars for debuff when getting caught once
@@ -59,23 +59,25 @@ public class ScratchScript : MonoBehaviour
         {
             if (playerDetected.IsDetected && !caughtScraching)
             {
-                if (wasWarned)
+                if (cos.WasWarned)
                 {
+                    //gameover scene
                     caughtScraching = true;
                     RemoveNekoTe();
                     //gameOverUI.SetUpGameOverUI();
                     Debug.Log("GAME OVER");
-
-                    gameObject.SetActive(false);
+                    cos.OnGameOver();
                 }
                 else
                 {
-                    wasWarned = true;
+                    //score count in UI
+                    ScoreManager.scoreCount -= 5;
                     caughtScraching = true;
                     RemoveNekoTe();
                     cos.AddConeOfShame();
                     //gameOverUI.SetUpConeOfShameUI();
                     Debug.Log("CONE OF SHAME");
+                    
                 }
             }
             else
@@ -93,6 +95,8 @@ public class ScratchScript : MonoBehaviour
                         if (nekoTeCurrentDurability <= 0)
                         {
                             RemoveNekoTe();
+                            //score count in UI
+                            ScoreManager.scoreCount += 8;
                         }
                     }
                 }
@@ -147,10 +151,5 @@ public class ScratchScript : MonoBehaviour
         scratchMR.enabled = false;
         isScratching = false;
         caughtScraching = false;
-    }
-
-    public bool WasWarned
-    {
-        set { wasWarned = value; }
     }
 }
