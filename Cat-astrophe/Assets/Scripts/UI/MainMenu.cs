@@ -7,21 +7,17 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject optionScreen;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private ScoreManager scoreManager;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        scoreManager = FindAnyObjectByType<ScoreManager>();
     }
 
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        ScoreManager.scoreCount = 0;
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
