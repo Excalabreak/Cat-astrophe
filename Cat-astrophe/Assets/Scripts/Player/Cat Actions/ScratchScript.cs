@@ -61,21 +61,24 @@ public class ScratchScript : MonoBehaviour
             {
                 if (wasWarned)
                 {
+                    //gameover scene
                     caughtScraching = true;
                     RemoveNekoTe();
                     //gameOverUI.SetUpGameOverUI();
                     Debug.Log("GAME OVER");
-
-                    gameObject.SetActive(false);
+                    cos.OnGameOver();
                 }
                 else
                 {
+                    //score count in UI
+                    ScoreManager.scoreCount -= 5;
                     wasWarned = true;
                     caughtScraching = true;
                     RemoveNekoTe();
                     cos.AddConeOfShame();
                     //gameOverUI.SetUpConeOfShameUI();
                     Debug.Log("CONE OF SHAME");
+                    
                 }
             }
             else
@@ -93,6 +96,8 @@ public class ScratchScript : MonoBehaviour
                         if (nekoTeCurrentDurability <= 0)
                         {
                             RemoveNekoTe();
+                            //score count in UI
+                            ScoreManager.scoreCount += 8;
                         }
                     }
                 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ConeOfShame : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class ConeOfShame : MonoBehaviour
     {
         coneMR.enabled = true;
         playerMotion.HandleConeOfShame();
+    }
+
+    public void OnGameOver()
+    {
+        SceneManager.LoadScene(2);
+        gameObject.SetActive(false);
     }
 
     /// <summary>
