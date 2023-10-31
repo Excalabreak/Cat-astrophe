@@ -9,6 +9,8 @@ public class TreatScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.GetComponent<PlayerMotion>().HandleTreats();
+            //score count for UI
+            ScoreManager.scoreCount += 1;
             Destroy(this.gameObject);
         }
     }

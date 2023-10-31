@@ -11,6 +11,8 @@ public class NekoTeScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.GetComponent<ScratchScript>().PickUpNekoTe();
+            //score count for UI
+            ScoreManager.scoreCount += 1;
             Destroy(this.gameObject);
         }
     }

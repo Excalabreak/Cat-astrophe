@@ -9,6 +9,8 @@ public class BlanketScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.GetComponent<PlayerDetected>().HandleBlanket();
+            //score count in UI
+            ScoreManager.scoreCount += 1;
             Destroy(this.gameObject);
         }
     }

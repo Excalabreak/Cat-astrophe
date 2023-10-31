@@ -8,7 +8,7 @@ public class Item : MonoBehaviour
     {
         if (collision.gameObject.tag == "Environment")
         {
-            ScoreManager.scoreCount +=1 ;
+            ScoreManager.scoreCount +=2 ;
             Destroy(this.gameObject);
         }
     }

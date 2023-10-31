@@ -24,4 +24,11 @@ public class GameOverScreen : MonoBehaviour
         SceneManager.LoadScene(0);
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
+
+    public void Level2()
+    {
+        SceneManager.LoadScene(4);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+
+    }
 }
