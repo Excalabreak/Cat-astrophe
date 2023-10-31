@@ -663,8 +663,8 @@ MonoBehaviour:
   detectionLength: 0.7
   sphereCastRadius: 0.25
   maxWallLookAngle: 30
-  climbJumpUpForce: 16
-  climbJumpBackForce: 14
+  climbJumpUpForce: 10
+  climbJumpBackForce: 12
   climbJumps: 1
   minWallNormalAngle: 5
 --- !u!114 &5437115571643464895

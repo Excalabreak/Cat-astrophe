@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -492,6 +492,7 @@ MonoBehaviour:
   baseMat: {fileID: 2100000, guid: 376a1a7f8ab399742a1374adccb8665d, type: 2}
   halfMat: {fileID: 2100000, guid: 52057c72f9a650b4cac0f40556174763, type: 2}
   destroyedMat: {fileID: 2100000, guid: a84dc0acea5032c429c1ee7f0877f053, type: 2}
+  destroyScore: 3
 --- !u!114 &867348020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,8 +505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d1cdb4de9398e4997bb4d264056aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageScore: 1
-  destroyScore: 2
 --- !u!1 &997973681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,6 +1504,14 @@ PrefabInstance:
     - target: {fileID: 5561349584678525044, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
       propertyPath: maxClimbTime
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561349584678525044, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+      propertyPath: climbJumpUpForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561349584678525044, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+      propertyPath: climbJumpBackForce
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5889085586609855826, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
       propertyPath: m_Volume
