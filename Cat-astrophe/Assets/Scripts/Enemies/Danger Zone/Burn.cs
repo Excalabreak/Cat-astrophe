@@ -15,6 +15,15 @@ public class Burn : MonoBehaviour
         {
             //StartCoroutine(Burnt());
             other.transform.position = backing.transform.position;
+            ConeOfShame cos = other.GetComponent<ConeOfShame>();
+            if (cos.WasWarned)
+            {
+                cos.OnGameOver();
+            }
+            else
+            {
+                cos.AddConeOfShame();
+            }
             
         }
     }
