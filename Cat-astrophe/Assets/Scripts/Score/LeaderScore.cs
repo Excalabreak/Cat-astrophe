@@ -6,26 +6,27 @@ using UnityEngine.Events;
 
 public class LeaderScore : MonoBehaviour
 {
-    ScoreManager addPoints;
-
     [SerializeField]
     private TextMeshProUGUI inputScore;
 
     [SerializeField]
+    private TextMeshProUGUI _inputScore;
+
+    [SerializeField]
     private TMP_InputField inputName;
+
+    static int score = 0;
 
     public UnityEvent<string, int> submitScoreEvent;
 
-    private void Awake()
+    private void Start()
     {
-        addPoints = gameObject.GetComponent<ScoreManager>();
+        score = PlayerPrefs.GetInt("Score: ");
     }
 
     private void Update()
     {
-        addPoints.AddPoint();
-        inputScore.text = addPoints.ToString() + " ";
-        
+        _inputScore.text = "" + score;
     }
 
     public void SubmitScore()

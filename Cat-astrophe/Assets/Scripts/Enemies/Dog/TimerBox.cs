@@ -13,6 +13,8 @@ public class TimerBox : MonoBehaviour
     private void Awake()
     {
         sliderObj.maxValue = sliderTime;
+        //score count in UI
+        ScoreManager.scoreCount -= 4;
     }
 
     // OnEnable is called every frame
