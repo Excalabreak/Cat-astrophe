@@ -5506,6 +5506,10 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 542337305}
+    - target: {fileID: 287829141737123382, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 129
+      objectReference: {fileID: 0}
     - target: {fileID: 2414368184967431939, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6607,6 +6611,10 @@ PrefabInstance:
     - target: {fileID: 2835819775659663386, guid: 529e70aa9dfeacc49b0ea7df36e55de0, type: 3}
       propertyPath: m_Name
       value: Fire Out (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3369691696267123523, guid: 529e70aa9dfeacc49b0ea7df36e55de0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7420142384127014325, guid: 529e70aa9dfeacc49b0ea7df36e55de0, type: 3}
       propertyPath: m_LocalPosition.x
