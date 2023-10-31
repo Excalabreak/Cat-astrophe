@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScratchScript : MonoBehaviour
 {
@@ -60,15 +61,20 @@ public class ScratchScript : MonoBehaviour
             {
                 if (wasWarned)
                 {
+                    //gameover scene
+                    SceneManager.LoadScene(2);
                     caughtScraching = true;
                     RemoveNekoTe();
                     //gameOverUI.SetUpGameOverUI();
                     Debug.Log("GAME OVER");
+                   
 
                     gameObject.SetActive(false);
                 }
                 else
                 {
+                    //score count in UI
+                    ScoreManager.scoreCount -= 5;
                     wasWarned = true;
                     caughtScraching = true;
                     coneMR.enabled = true;
@@ -76,6 +82,7 @@ public class ScratchScript : MonoBehaviour
                     playerMotion.HandleConeOfShame();
                     //gameOverUI.SetUpConeOfShameUI();
                     Debug.Log("CONE OF SHAME");
+                    
                 }
             }
             else
@@ -93,6 +100,8 @@ public class ScratchScript : MonoBehaviour
                         if (nekoTeCurrentDurability <= 0)
                         {
                             RemoveNekoTe();
+                            //score count in UI
+                            ScoreManager.scoreCount += 8;
                         }
                     }
                 }

@@ -28,7 +28,9 @@ public class CameraBreakableScript : BreakableScript
 
             if (currentHealth <= 0)
             {
-                scoreScript.AddScore(destroyScore);
+                //scoreScript.AddScore(destroyScore);
+                //add score count UI
+                ScoreManager.scoreCount += 3;
             }
 
 

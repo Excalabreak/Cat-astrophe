@@ -54,7 +54,9 @@ public class BreakableScript : MonoBehaviour
             //scoreScript.AddScore(damageScore);
             if (currentHealth <= 0)
             {
-                scoreScript.AddScore(destroyScore);
+                //scoreScript.AddScore(destroyScore);
+                //score count in UI
+                ScoreManager.scoreCount += 5;
             }
             
 
