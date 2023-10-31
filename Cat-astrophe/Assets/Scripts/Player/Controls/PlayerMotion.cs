@@ -149,7 +149,7 @@ public class PlayerMotion : MonoBehaviour
         Vector3 rayCastOrigin = transform.position;
         rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
 
-        if (!isGrounded && !playerClimb.Climbing)
+        if (!isGrounded)
         {
             inAirTimer = inAirTimer + Time.deltaTime;
             playerRigidBody.AddForce(transform.forward * leapingVelocity);

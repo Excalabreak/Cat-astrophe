@@ -225,7 +225,6 @@ MonoBehaviour:
   box: {fileID: 8504076475586919364, guid: f0412a0d7fb80854ba5f2fed5c1c121f, type: 3}
   back: {fileID: 5740194139686562935, guid: 1e59ddd48e8e4dc40b25679dc1a68457, type: 3}
   dogo: {fileID: 7314637973473895868}
-  restricter: {fileID: 0}
 --- !u!1 &344030280248752415
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,5 +872,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   bark: {fileID: 8114393104284207874}
-  minDist: 0
+  minDist: 5
   sighted: 1
