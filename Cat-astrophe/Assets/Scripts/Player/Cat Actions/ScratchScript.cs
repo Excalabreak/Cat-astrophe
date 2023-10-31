@@ -34,7 +34,7 @@ public class ScratchScript : MonoBehaviour
     private bool isScratching = false;
 
     //vars for cone of shame
-    [SerializeField] private MeshRenderer coneMR;
+    private ConeOfShame cos;
 
 
     private void Awake()
@@ -42,6 +42,7 @@ public class ScratchScript : MonoBehaviour
         playerMotion = GetComponent<PlayerMotion>();
         playerDetected = GetComponent<PlayerDetected>();
         scratchMR = scratchCollider.GetComponent<MeshRenderer>();
+        cos = GetComponent<ConeOfShame>();
 
         //scratchStrength = startingScratchStrength;
     }
@@ -77,9 +78,8 @@ public class ScratchScript : MonoBehaviour
                     ScoreManager.scoreCount -= 5;
                     wasWarned = true;
                     caughtScraching = true;
-                    coneMR.enabled = true;
                     RemoveNekoTe();
-                    playerMotion.HandleConeOfShame();
+                    cos.AddConeOfShame();
                     //gameOverUI.SetUpConeOfShameUI();
                     Debug.Log("CONE OF SHAME");
                     
@@ -112,16 +112,6 @@ public class ScratchScript : MonoBehaviour
     }
 
     /// <summary>
-    /// removes Cone of shame from cat
-    /// </summary>
-    public void ResetConeOfShame()
-    {
-        coneMR.enabled = false;
-        playerMotion.ResetStats();
-        wasWarned = false;
-    }
-
-    /// <summary>
     /// cat gains buff from Neko Te Power Ups
     /// </summary>
     public void PickUpNekoTe()
@@ -151,7 +141,7 @@ public class ScratchScript : MonoBehaviour
 
         clawMR.SetActive(false);
     }
-    
+
     /// <summary>
     /// this coroutine will make sure the hitbox for the cat is on for a certian amount of time
     /// </summary>
@@ -166,5 +156,10 @@ public class ScratchScript : MonoBehaviour
         scratchMR.enabled = false;
         isScratching = false;
         caughtScraching = false;
+    }
+
+    public bool WasWarned
+    {
+        set { wasWarned = value; }
     }
 }
