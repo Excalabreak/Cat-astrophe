@@ -6,22 +6,34 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject optionScreen;
+    public GameObject levelSelection;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private ScoreManager scoreManager;
+
+    private void Start()
     {
-        
+        scoreManager = FindAnyObjectByType<ScoreManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void StartGame()
+    public void Level1()
     {
         SceneManager.LoadScene(1);
+        ScoreManager.scoreCount = 0;
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    }
+    
+    public void Level2()
+    {
+        //SceneManager.LoadScene();
+        ScoreManager.scoreCount = 0;
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    } 
+    
+    public void Level3()
+    {
+        //SceneManager.LoadScene();
+        ScoreManager.scoreCount = 0;
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
@@ -30,10 +42,22 @@ public class MainMenu : MonoBehaviour
         optionScreen.SetActive(true);
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
+    
+    public void OpenLevelSelection()
+    {
+        levelSelection.SetActive(true);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    }
 
     public void CloseOption()
     {
         optionScreen.SetActive(false);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    }
+    
+    public void CloseLevelSelection()
+    {
+        levelSelection.SetActive(false);
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 

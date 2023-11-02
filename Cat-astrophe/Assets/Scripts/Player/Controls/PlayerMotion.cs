@@ -12,12 +12,21 @@ public class PlayerMotion : MonoBehaviour
 
     //setable speeds in editor
     [SerializeField] private float startngMoveSpeed = 7f;
-    private float moveSpeed;
+    [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed = 15f;
 
     //vars for debuff when getting caught once
-    [SerializeField] private float moveDebuff = 2f;
-    [SerializeField] private float jumpDebuff = 20f;
+    [SerializeField] private float moveConeDebuff = 2f;
+    [SerializeField] private float jumpConeDebuff = 20f;
+
+    //vars for buffs when get treats
+    [SerializeField] private float moveTreatBuff = 3f;
+    [SerializeField] private float jumpTreatBuff = 10f;
+    [SerializeField] private float treatTime = 10f;
+
+    //vars for debuffs when wearing blanket
+    [SerializeField] private float blanketMoveDebuff = 1f;
+    [SerializeField] private float blanketJumpDebuff = 15f;
 
     //the direction where it rotates
     private Vector3 moveDirection;
@@ -45,10 +54,7 @@ public class PlayerMotion : MonoBehaviour
         playerClimb = GetComponent<PlayerClimb>();
         ResetStats();
     }
-    private void Update()
-    {
-        if (PauseManager.paused) return;
-    }
+
     /// <summary>
     /// Calls all Handle functions in this script
     /// (Movement, Rotation)
@@ -65,8 +71,34 @@ public class PlayerMotion : MonoBehaviour
     /// </summary>
     public void HandleConeOfShame()
     {
-        moveSpeed = moveSpeed - moveDebuff;
-        jumpHeight = jumpHeight + jumpDebuff;
+        moveSpeed = moveSpeed - moveConeDebuff;
+        jumpHeight = jumpHeight + jumpConeDebuff;
+    }
+
+    /// <summary>
+    /// starts coroutine for treat buff
+    /// </summary>
+    public void HandleTreats()
+    {
+        StartCoroutine(TreatBuff());
+    }
+
+    /// <summary>
+    /// applies debuff from getting blanket power up
+    /// </summary>
+    public void HandleBlanketDebuff()
+    {
+        moveSpeed = moveSpeed - blanketMoveDebuff;
+        jumpHeight = jumpHeight + blanketJumpDebuff;
+    }
+
+    /// <summary>
+    /// removees debuffs from blanket power up
+    /// </summary>
+    public void RemoveBlanketDebuff()
+    {
+        moveSpeed = moveSpeed + blanketMoveDebuff;
+        jumpHeight = jumpHeight - blanketJumpDebuff;
     }
 
     /// <summary>
@@ -157,6 +189,17 @@ public class PlayerMotion : MonoBehaviour
         moveSpeed = startngMoveSpeed;
         jumpHeight = startingJumpHeight;
     }
+
+    private IEnumerator TreatBuff()
+    {
+        moveSpeed = moveSpeed + moveTreatBuff;
+        jumpHeight = jumpHeight - jumpTreatBuff;
+
+        yield return new WaitForSeconds(treatTime);
+
+        moveSpeed = moveSpeed - moveTreatBuff;
+        jumpHeight = jumpHeight + jumpTreatBuff;
+    }    
 
     public bool IsGrounded
     {
