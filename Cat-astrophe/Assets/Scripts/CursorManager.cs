@@ -4,21 +4,35 @@ using UnityEngine;
 
 public class CursorManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static CursorManager instance;
+
+    private void Awake()
     {
-        ShowCursor();
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+        HideCursor();
     }
 
-    public void ShowCursor()
+    public void HideCursor()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void HideCursor()
+    public void ShowCursor()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public static CursorManager Instance
+    {
+        get { return instance; }
     }
 }
