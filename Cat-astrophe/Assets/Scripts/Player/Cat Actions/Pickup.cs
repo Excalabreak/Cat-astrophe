@@ -42,6 +42,8 @@ public class Pickup : MonoBehaviour
     [SerializeField]
     private AudioSource pickUpSource;
 
+    [SerializeField] private Transform InHandTransform;
+
     private void Start()
     {
         //change Interact to PickUp
@@ -95,6 +97,7 @@ public class Pickup : MonoBehaviour
             {
                 pickUpSource.Play();
                 inHandItem = pickableItem.PickUp();
+                inHandItem.transform.position = InHandTransform.position;
                 inHandItem.transform.SetParent(pickUpParent.transform, pickableItem.KeepWorldPosition);
             }
             //Debug.Log(hit.collider.name);

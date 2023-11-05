@@ -151,12 +151,15 @@ public class PlayerMotion : MonoBehaviour
 
         if (!isGrounded && !playerClimb.Climbing)
         {
-            inAirTimer = inAirTimer + Time.deltaTime;
-            playerRigidBody.AddForce(transform.forward * leapingVelocity);
-            playerRigidBody.AddForce(-Vector3.up * fallingSpeed * inAirTimer);
+            if (inAirTimer < 1.8f)
+            {
+                inAirTimer = inAirTimer + Time.deltaTime;
+                playerRigidBody.AddForce(transform.forward * leapingVelocity);
+                playerRigidBody.AddForce(-Vector3.up * fallingSpeed * inAirTimer);
+            }
         }
 
-        if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, maxDistance, groundLayer))
+        if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, maxDistance, groundLayer) || playerClimb.Climbing)
         {
             inAirTimer = 0;
             isGrounded = true;
