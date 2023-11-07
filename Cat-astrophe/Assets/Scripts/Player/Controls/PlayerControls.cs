@@ -239,31 +239,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Drop"",
+                    ""name"": ""Scratch"",
                     ""type"": ""Button"",
-                    ""id"": ""789d1ec1-661f-4b56-a477-b8c4ed481c81"",
+                    ""id"": ""123c504d-9604-4846-a329-8a998bab9c3a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Use"",
-                    ""type"": ""Button"",
-                    ""id"": ""7e79a60d-dc06-4765-bdc4-f498520093ea"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""09bece13-5e01-40d3-b158-8b429c52693e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": true
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Toss"",
@@ -271,22 +253,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""id"": ""c95cf9c7-588a-4565-99c2-77f7aa3ab5ca"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": true
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Climb"",
+                    ""name"": ""PickUp"",
                     ""type"": ""Button"",
-                    ""id"": ""54bb59b5-4f72-4a9e-a40c-b245d7553b73"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Scratch"",
-                    ""type"": ""Button"",
-                    ""id"": ""123c504d-9604-4846-a329-8a998bab9c3a"",
+                    ""id"": ""cd5fec11-4f6e-48b5-871d-8c2a22b2d9d0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -318,74 +291,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5cc8a989-cb6f-49bd-8977-ce1bff2136b6"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Drop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3a2fdad2-295a-4802-bfea-307c77850072"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Drop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0d02af01-c808-4461-93d4-46de6241e320"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Use"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b05e2383-0e93-4c8d-ba60-35a893f79590"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Use"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b0ddc0bf-5b10-4f59-b885-486a169c166f"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ca1e599e-fc2c-4a96-aca3-dc0f54d3c232"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""bf41a16e-f9bc-4486-9d4a-e5f9f6ca501f"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -406,34 +313,23 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d7fbb955-148a-42b3-8d6b-94e33d2a1b05"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Climb"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""459a511a-a2f9-42a9-9864-4150234b23a1"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Climb"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""025f6cd4-16e1-44d1-a744-4b421fda90e9"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Scratch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77f3c921-0cc6-4f37-be9f-8e533a7a18a5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PickUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -449,12 +345,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // PlayerActions
         m_PlayerActions = asset.FindActionMap("PlayerActions", throwIfNotFound: true);
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
-        m_PlayerActions_Drop = m_PlayerActions.FindAction("Drop", throwIfNotFound: true);
-        m_PlayerActions_Use = m_PlayerActions.FindAction("Use", throwIfNotFound: true);
-        m_PlayerActions_Interact = m_PlayerActions.FindAction("Interact", throwIfNotFound: true);
-        m_PlayerActions_Toss = m_PlayerActions.FindAction("Toss", throwIfNotFound: true);
-        m_PlayerActions_Climb = m_PlayerActions.FindAction("Climb", throwIfNotFound: true);
         m_PlayerActions_Scratch = m_PlayerActions.FindAction("Scratch", throwIfNotFound: true);
+        m_PlayerActions_Toss = m_PlayerActions.FindAction("Toss", throwIfNotFound: true);
+        m_PlayerActions_PickUp = m_PlayerActions.FindAction("PickUp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -571,23 +464,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerActions;
     private List<IPlayerActionsActions> m_PlayerActionsActionsCallbackInterfaces = new List<IPlayerActionsActions>();
     private readonly InputAction m_PlayerActions_Jump;
-    private readonly InputAction m_PlayerActions_Drop;
-    private readonly InputAction m_PlayerActions_Use;
-    private readonly InputAction m_PlayerActions_Interact;
-    private readonly InputAction m_PlayerActions_Toss;
-    private readonly InputAction m_PlayerActions_Climb;
     private readonly InputAction m_PlayerActions_Scratch;
+    private readonly InputAction m_PlayerActions_Toss;
+    private readonly InputAction m_PlayerActions_PickUp;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
-        public InputAction @Drop => m_Wrapper.m_PlayerActions_Drop;
-        public InputAction @Use => m_Wrapper.m_PlayerActions_Use;
-        public InputAction @Interact => m_Wrapper.m_PlayerActions_Interact;
-        public InputAction @Toss => m_Wrapper.m_PlayerActions_Toss;
-        public InputAction @Climb => m_Wrapper.m_PlayerActions_Climb;
         public InputAction @Scratch => m_Wrapper.m_PlayerActions_Scratch;
+        public InputAction @Toss => m_Wrapper.m_PlayerActions_Toss;
+        public InputAction @PickUp => m_Wrapper.m_PlayerActions_PickUp;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -600,24 +487,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
-            @Drop.started += instance.OnDrop;
-            @Drop.performed += instance.OnDrop;
-            @Drop.canceled += instance.OnDrop;
-            @Use.started += instance.OnUse;
-            @Use.performed += instance.OnUse;
-            @Use.canceled += instance.OnUse;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
-            @Toss.started += instance.OnToss;
-            @Toss.performed += instance.OnToss;
-            @Toss.canceled += instance.OnToss;
-            @Climb.started += instance.OnClimb;
-            @Climb.performed += instance.OnClimb;
-            @Climb.canceled += instance.OnClimb;
             @Scratch.started += instance.OnScratch;
             @Scratch.performed += instance.OnScratch;
             @Scratch.canceled += instance.OnScratch;
+            @Toss.started += instance.OnToss;
+            @Toss.performed += instance.OnToss;
+            @Toss.canceled += instance.OnToss;
+            @PickUp.started += instance.OnPickUp;
+            @PickUp.performed += instance.OnPickUp;
+            @PickUp.canceled += instance.OnPickUp;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -625,24 +503,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-            @Drop.started -= instance.OnDrop;
-            @Drop.performed -= instance.OnDrop;
-            @Drop.canceled -= instance.OnDrop;
-            @Use.started -= instance.OnUse;
-            @Use.performed -= instance.OnUse;
-            @Use.canceled -= instance.OnUse;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
-            @Toss.started -= instance.OnToss;
-            @Toss.performed -= instance.OnToss;
-            @Toss.canceled -= instance.OnToss;
-            @Climb.started -= instance.OnClimb;
-            @Climb.performed -= instance.OnClimb;
-            @Climb.canceled -= instance.OnClimb;
             @Scratch.started -= instance.OnScratch;
             @Scratch.performed -= instance.OnScratch;
             @Scratch.canceled -= instance.OnScratch;
+            @Toss.started -= instance.OnToss;
+            @Toss.performed -= instance.OnToss;
+            @Toss.canceled -= instance.OnToss;
+            @PickUp.started -= instance.OnPickUp;
+            @PickUp.performed -= instance.OnPickUp;
+            @PickUp.canceled -= instance.OnPickUp;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -668,11 +537,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IPlayerActionsActions
     {
         void OnJump(InputAction.CallbackContext context);
-        void OnDrop(InputAction.CallbackContext context);
-        void OnUse(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
-        void OnToss(InputAction.CallbackContext context);
-        void OnClimb(InputAction.CallbackContext context);
         void OnScratch(InputAction.CallbackContext context);
+        void OnToss(InputAction.CallbackContext context);
+        void OnPickUp(InputAction.CallbackContext context);
     }
 }

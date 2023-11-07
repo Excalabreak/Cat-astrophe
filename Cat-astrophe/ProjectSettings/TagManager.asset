@@ -8,6 +8,7 @@ TagManager:
   - cat
   - Breakable
   - PowerUp
+  - Carriable
   layers:
   - Default
   - TransparentFX

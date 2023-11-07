@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     private PlayerMotion playerMotion;
     private ScratchScript scratchScript;
     private PlayerClimb playerClimb;
+    private PickUp2 pickUp;
 
     //what is the input from the controller
     private Vector2 moveInput;
@@ -29,6 +30,8 @@ public class InputManager : MonoBehaviour
     private bool scratchInput;
 
     //variables for pick up items
+    private bool pickUpInput;
+    private bool tossInput;
 
     //on awake: get PlayerMotion
     private void Awake()
@@ -36,6 +39,7 @@ public class InputManager : MonoBehaviour
         playerMotion = GetComponent<PlayerMotion>();
         scratchScript = GetComponent<ScratchScript>();
         playerClimb = GetComponent<PlayerClimb>();
+        pickUp = GetComponent<PickUp2>();
     }
 
     /*
@@ -55,6 +59,8 @@ public class InputManager : MonoBehaviour
 
             playerControls.PlayerActions.Jump.performed += i => jumpInput = true;
             playerControls.PlayerActions.Scratch.performed += i => scratchInput = true;
+            playerControls.PlayerActions.PickUp.performed += i => pickUpInput = true;
+            playerControls.PlayerActions.Toss.performed += i => tossInput = true;
         }
 
         playerControls.Enable();
@@ -75,6 +81,8 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleJumpInput();
         HandleScrachInput();
+        HandleTossInput();
+        HandlePickUpInput();
     }
 
     /// <summary>
@@ -111,7 +119,7 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// when the player scraches, turn off scrachInput for only one jump and calls HandleScrach in ScrachScript
+    /// when the player scraches, turn off scrachInput and calls HandleScrach in ScrachScript
     /// </summary>
     private void HandleScrachInput()
     {
@@ -119,6 +127,30 @@ public class InputManager : MonoBehaviour
         {
             scratchInput = false;
             scratchScript.HandleScratch();
+        }
+    }
+
+    /// <summary>
+    /// when the player tosses, turn off tossInput and calls HandleToss in PickUp2
+    /// </summary>
+    private void HandleTossInput()
+    {
+        if (tossInput)
+        {
+            tossInput = false;
+            pickUp.HandleToss();
+        }
+    }
+
+    /// <summary>
+    /// when the player pick ups, turn off pickUpInput and calls HandleToss in PickUp2
+    /// </summary>
+    private void HandlePickUpInput()
+    {
+        if (pickUpInput)
+        {
+            pickUpInput = false;
+            pickUp.HandlePickUp();
         }
     }
 
