@@ -13,7 +13,7 @@ public class Damage : MonoBehaviour, Interactiable
 
     public bool Interact(Interactor iInteractor)
     {
-        Debug.Log("Damage!");
+        //Debug.Log("Damage!");
         return true;
     }
 }
