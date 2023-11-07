@@ -10,6 +10,7 @@ public class GameOverScreen : MonoBehaviour
     private void Start()
     {
         scoreManager = FindAnyObjectByType<ScoreManager>();
+        CursorManager.Instance.ShowCursor();
     }
 
     public void Restart()
@@ -17,12 +18,14 @@ public class GameOverScreen : MonoBehaviour
         SceneManager.LoadScene(1);
         ScoreManager.scoreCount = 0;
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+        CursorManager.Instance.ShowCursor();
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+        CursorManager.Instance.ShowCursor();
     }
 
     public void Level2()

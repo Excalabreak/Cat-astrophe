@@ -49,6 +49,7 @@ public class PauseManager : MonoBehaviour
         paused = true;
         pauseMenu.SetActive(true);
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+        CursorManager.Instance.ShowCursor();
     }
 
     public void ResumeGame()
