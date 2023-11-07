@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject optionScreen;
+    public GameObject levelSelection;
+
 
     private ScoreManager scoreManager;
 
@@ -14,9 +16,23 @@ public class MainMenu : MonoBehaviour
         scoreManager = FindAnyObjectByType<ScoreManager>();
     }
 
-    public void StartGame()
+    public void Level1()
     {
         SceneManager.LoadScene(1);
+        ScoreManager.scoreCount = 0;
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    }
+    
+    public void Level2()
+    {
+        //SceneManager.LoadScene();
+        ScoreManager.scoreCount = 0;
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    } 
+    
+    public void Level3()
+    {
+        //SceneManager.LoadScene();
         ScoreManager.scoreCount = 0;
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
@@ -26,10 +42,22 @@ public class MainMenu : MonoBehaviour
         optionScreen.SetActive(true);
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
+    
+    public void OpenLevelSelection()
+    {
+        levelSelection.SetActive(true);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    }
 
     public void CloseOption()
     {
         optionScreen.SetActive(false);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    }
+    
+    public void CloseLevelSelection()
+    {
+        levelSelection.SetActive(false);
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 

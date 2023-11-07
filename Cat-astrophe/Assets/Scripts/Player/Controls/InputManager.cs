@@ -28,6 +28,8 @@ public class InputManager : MonoBehaviour
     //variables for scrach
     private bool scratchInput;
 
+    //variables for pick up items
+
     //on awake: get PlayerMotion
     private void Awake()
     {
