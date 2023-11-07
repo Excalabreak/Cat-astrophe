@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1223915733790550311}
   - component: {fileID: 1079852050130214688}
   - component: {fileID: 1204432281195909671}
-  m_Layer: 0
+  - component: {fileID: 2252158567266993408}
+  m_Layer: 3
   m_Name: Blanket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,3 +119,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687d70c2a13152c4e94801b412c85266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2252158567266993408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878302588419115553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7d4e1088b358f42bad02fffb2d318a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompt: Blanket

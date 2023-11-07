@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7120644368413667735}
   - component: {fileID: 4283280427875559304}
   - component: {fileID: 1637849852621256330}
+  - component: {fileID: 523953605564578469}
   m_Layer: 3
   m_Name: Vase
   m_TagString: Untagged
@@ -162,3 +163,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7919fbcc011fa8e4d828d99ab09d95df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &523953605564578469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5662026594472783854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35ad3203aa0cf34a90ac4914ce8aede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompt: Press[E] to pickupup

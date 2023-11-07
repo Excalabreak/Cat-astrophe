@@ -22,6 +22,7 @@ public class LeaderScore : MonoBehaviour
     private void Start()
     {
         score = PlayerPrefs.GetInt("Score: ");
+        CursorManager.Instance.ShowCursor();
     }
 
     private void Update()
