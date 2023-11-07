@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.tag == "Environment")
+        {
+            ScoreManager.scoreCount +=2 ;
+            Destroy(this.gameObject);
+        }
     }
 }

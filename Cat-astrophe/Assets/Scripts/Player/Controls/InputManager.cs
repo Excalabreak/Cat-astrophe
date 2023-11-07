@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InputManager : MonoBehaviour
 
     private PlayerMotion playerMotion;
     private ScratchScript scratchScript;
+    private PlayerClimb playerClimb;
 
     //what is the input from the controller
     private Vector2 moveInput;
@@ -31,6 +33,7 @@ public class InputManager : MonoBehaviour
     {
         playerMotion = GetComponent<PlayerMotion>();
         scratchScript = GetComponent<ScratchScript>();
+        playerClimb = GetComponent<PlayerClimb>();
     }
 
     /*
@@ -93,7 +96,15 @@ public class InputManager : MonoBehaviour
         if (jumpInput)
         {
             jumpInput = false;
-            playerMotion.HandleJump();
+
+            if (playerClimb.Climbing)
+            {
+                playerClimb.DoClimbJump = true;
+            }
+            else
+            {
+                playerMotion.HandleJump();
+            }
         }
     }
 

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - item
   - cat
+  - Breakable
+  - Environment
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Interactible
   - Climbable
   - Player
-  - 
+  - Cucumber
   - 
   - 
   - 
