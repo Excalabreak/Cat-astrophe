@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1629,10 +1629,12 @@ MonoBehaviour:
     m_Bits: 8
   playerCamera: {fileID: 1410979269}
   pickUpTarget: {fileID: 1850495681}
-  pickUpRange: 10
+  orientation: {fileID: 7925592587064625267}
+  pickUpRange: 1
   CurrentObject: {fileID: 0}
   CurrentObjectRigidBody: {fileID: 0}
   CurrentObjectCollider: {fileID: 0}
+  throwForce: 10
 --- !u!4 &1850495681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2858391050562804995, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
@@ -1886,6 +1888,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1743121205}
   m_SourcePrefab: {fileID: 100100000, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+--- !u!4 &7925592587064625267 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 208552270061081177, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
+  m_PrefabInstance: {fileID: 7925592587064625266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

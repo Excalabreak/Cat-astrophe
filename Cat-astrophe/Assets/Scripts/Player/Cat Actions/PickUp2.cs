@@ -5,54 +5,59 @@ using UnityEngine;
 public class PickUp2 : MonoBehaviour
 {
     [SerializeField] private LayerMask pickUpMask;
-    [SerializeField] private Camera playerCamera;
     [SerializeField] private Transform pickUpTarget;
+    [SerializeField] private Transform orientation;
 
     [SerializeField] private float pickUpRange;
-    [SerializeField] private GameObject CurrentObject;
-    [SerializeField] private Rigidbody CurrentObjectRigidBody;
-    [SerializeField] private Collider CurrentObjectCollider;
+    private GameObject CurrentObject;
+    private Rigidbody CurrentObjectRigidBody;
+    private Collider CurrentObjectCollider;
 
-    private bool doPickUp = false;
+    [SerializeField] private float throwForce = 5f;
 
     public void HandleToss()
     {
+        if (CurrentObject)
+        {
+            CurrentObjectRigidBody.useGravity = true;
+            CurrentObjectCollider.enabled = true;
 
+            Vector3 throwDirection = orientation.forward;
+            throwDirection.Normalize();
+            throwDirection = throwDirection * throwForce;
+            CurrentObjectRigidBody.AddForce(throwDirection, ForceMode.Impulse);
+
+            CurrentObject = null;
+            CurrentObjectRigidBody = null;
+            CurrentObjectCollider = null;
+
+            return;
+        }
     }
 
     public void HandlePickUp()
     {
-        doPickUp = !doPickUp;
-    }
-
-    private void Update()
-    {
-        if (doPickUp)
+        if (CurrentObject)
         {
-            Ray CameraRay = playerCamera.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
-            if (Physics.Raycast(CameraRay, out RaycastHit hit, pickUpRange, pickUpMask))
-            {
-                CurrentObject = hit.transform.gameObject;
-                CurrentObjectRigidBody = CurrentObject.GetComponent<Rigidbody>();
-                CurrentObjectCollider = CurrentObject.GetComponent<Collider>();
+            CurrentObjectRigidBody.useGravity = true;
+            CurrentObjectCollider.enabled = true;
 
-                CurrentObjectRigidBody.useGravity = false;
-                CurrentObjectCollider.enabled = false;
-            }
+            CurrentObject = null;
+            CurrentObjectRigidBody = null;
+            CurrentObjectCollider = null;
+
+            return;
         }
-        else
+
+        //Ray CameraRay = playerCamera.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+        if (Physics.SphereCast(transform.position, 1f, orientation.forward, out RaycastHit hit, pickUpRange, pickUpMask))
         {
-            if (CurrentObject)
-            {
-                CurrentObjectRigidBody.useGravity = true;
-                CurrentObjectCollider.enabled = true;
+            CurrentObject = hit.transform.gameObject;
+            CurrentObjectRigidBody = CurrentObject.GetComponent<Rigidbody>();
+            CurrentObjectCollider = CurrentObject.GetComponent<Collider>();
 
-                CurrentObject = null;
-                CurrentObjectRigidBody = null;
-                CurrentObjectCollider = null;
-
-                return;
-            }
+            CurrentObjectRigidBody.useGravity = false;
+            CurrentObjectCollider.enabled = false;
         }
     }
 
