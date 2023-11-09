@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Destructive : MonoBehaviour, Interactiable
 {
@@ -13,7 +14,7 @@ public class Destructive : MonoBehaviour, Interactiable
 
     public bool Interact(Interactor iInteractor)
     {
-        Debug.Log("Destroy");
+        //Debug.Log("Destroy");
         return true;
     }
 }

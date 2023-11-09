@@ -99,6 +99,7 @@ public class Pickup : MonoBehaviour
                 inHandItem = pickableItem.PickUp();
                 inHandItem.transform.position = InHandTransform.position;
                 inHandItem.transform.SetParent(pickUpParent.transform, pickableItem.KeepWorldPosition);
+                
             }
             //Debug.Log(hit.collider.name);
             //Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
