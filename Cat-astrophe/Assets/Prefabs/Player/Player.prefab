@@ -517,6 +517,7 @@ Transform:
   - {fileID: 2747014563502807248}
   - {fileID: 5703000966165117591}
   - {fileID: 1654316401293047660}
+  - {fileID: 2858391050562804995}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7765187166311525362
@@ -1667,7 +1668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b4fb84879a54449955fb72a4675c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactTrigger: {fileID: 0}
 --- !u!1 &3997243912020859566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,6 +1996,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7671636251861254432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2858391050562804995}
+  m_Layer: 0
+  m_Name: PickUpPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2858391050562804995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671636251861254432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 208552270061081177}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8587679745511939298
 GameObject:
   m_ObjectHideFlags: 0
