@@ -8,6 +8,7 @@ TagManager:
   - cat
   - Breakable
   - Environment
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Climbable
   - Player
   - Cucumber
-  - 
+  - Ground
   - 
   - 
   - 
