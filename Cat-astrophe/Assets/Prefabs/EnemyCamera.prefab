@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2141b184639de0e47a9aae9ceb953255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 12
   baseMat: {fileID: 0}
   halfMat: {fileID: 0}
   destroyedMat: {fileID: 0}
