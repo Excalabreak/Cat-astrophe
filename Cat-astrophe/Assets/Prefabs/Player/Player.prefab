@@ -737,7 +737,7 @@ MonoBehaviour:
   fallingSpeed: 33
   groundLayer:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 137
   gravityIntensity: 1
   startingJumpHeight: -30
 --- !u!114 &5047678562675507688
