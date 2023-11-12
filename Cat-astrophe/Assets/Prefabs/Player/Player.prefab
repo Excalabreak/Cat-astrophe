@@ -633,6 +633,7 @@ Transform:
   - {fileID: 5703000966165117591}
   - {fileID: 1654316401293047660}
   - {fileID: 2858391050562804995}
+  - {fileID: 2543989036231905685}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7765187166311525362
@@ -684,7 +685,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &2984646937103602295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,7 +732,6 @@ MonoBehaviour:
   jumpTreatBuff: 15
   treatTime: 10
   blanketMoveDebuff: 1
-  blanketJumpDebuff: 15
   rayCastHeightOffset: 0.5
   leapingVelocity: 3
   fallingSpeed: 33
