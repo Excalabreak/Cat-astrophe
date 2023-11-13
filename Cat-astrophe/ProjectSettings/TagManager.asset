@@ -9,6 +9,8 @@ TagManager:
   - Breakable
   - PowerUp
   - Carriable
+  - Environment
+  - Scratch
   layers:
   - Default
   - TransparentFX
