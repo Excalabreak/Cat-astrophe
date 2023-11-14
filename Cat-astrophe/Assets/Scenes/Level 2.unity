@@ -640,6 +640,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1175391760157146163, guid: c787d839b704f914db49d188d4344394, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850977808471834684, guid: c787d839b704f914db49d188d4344394, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.28
+      objectReference: {fileID: 0}
     - target: {fileID: 3123199372595269348, guid: c787d839b704f914db49d188d4344394, type: 3}
       propertyPath: m_Name
       value: Kitchen
@@ -683,6 +691,22 @@ PrefabInstance:
     - target: {fileID: 3548531673927482085, guid: c787d839b704f914db49d188d4344394, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855794528909964545, guid: c787d839b704f914db49d188d4344394, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509936043056951195, guid: c787d839b704f914db49d188d4344394, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842704214165468270, guid: c787d839b704f914db49d188d4344394, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990561786550604738, guid: c787d839b704f914db49d188d4344394, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.96
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

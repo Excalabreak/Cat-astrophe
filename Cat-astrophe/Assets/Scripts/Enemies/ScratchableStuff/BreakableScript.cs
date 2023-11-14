@@ -59,7 +59,7 @@ public class BreakableScript : MonoBehaviour
             {
                 //scoreScript.AddScore(destroyScore);
                 //score count in UI
-                ScoreManager.scoreCount += 5;
+                ScoreManager.scoreCount += 3;
             }
             
 
