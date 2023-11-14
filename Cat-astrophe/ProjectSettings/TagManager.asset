@@ -10,7 +10,6 @@ TagManager:
   - PowerUp
   - Carriable
   - Environment
-  - Scratch
   layers:
   - Default
   - TransparentFX
@@ -23,7 +22,7 @@ TagManager:
   - Player
   - Cucumber
   - Dog
-  - 
+  - Ground
   - 
   - 
   - 

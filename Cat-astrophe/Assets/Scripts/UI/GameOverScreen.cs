@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOverScreen : MonoBehaviour
 {
     private ScoreManager scoreManager;
+    public GameObject leaderboardPanel;
 
     private void Start()
     {
@@ -32,6 +33,17 @@ public class GameOverScreen : MonoBehaviour
     {
         SceneManager.LoadScene(4);
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    }
 
+    public void OpenLeaderboard()
+    {
+        leaderboardPanel.SetActive(true);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    }
+    
+    public void CloseLeaderboard()
+    {
+        leaderboardPanel.SetActive(false);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 }

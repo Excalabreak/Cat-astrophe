@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject setting;
 
     public static bool paused = false;
 
@@ -73,5 +74,17 @@ public class PauseManager : MonoBehaviour
         Application.Quit();
         SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
         Debug.Log("Quitting");
+    }
+
+    public void OpenSetting()
+    {
+        setting.SetActive(true);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+    } 
+    
+    public void CloseSetting()
+    {
+        setting.SetActive(false);
+        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 }
