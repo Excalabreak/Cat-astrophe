@@ -18,6 +18,7 @@ public class TimeOut : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(ToBox());
+            ScoreManager.scoreCount -= 3;
             other.transform.position = box.transform.position;
             dogo.transform.position = back.transform.position;
         }

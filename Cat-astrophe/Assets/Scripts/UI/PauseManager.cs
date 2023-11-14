@@ -8,6 +8,8 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject setting;
 
+    AudioManager audioManager;
+
     public static bool paused = false;
 
     PauseAction action;
@@ -15,6 +17,7 @@ public class PauseManager : MonoBehaviour
     private void Awake()
     {
         action = new PauseAction();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void OnEnable()
@@ -46,45 +49,46 @@ public class PauseManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        audioManager.PlaySFX(audioManager.click);
         AudioListener.pause = true;
         paused = true;
         pauseMenu.SetActive(true);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
         CursorManager.Instance.ShowCursor();
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
+        audioManager.PlaySFX(audioManager.click);
         AudioListener.pause = false;
         paused = false;
         pauseMenu.SetActive(false);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
         CursorManager.Instance.HideCursor();
     }
 
     public void MainMenu()
     {
+        audioManager.PlaySFX(audioManager.click);
         SceneManager.LoadScene(0);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+        CursorManager.Instance.ShowCursor();
     }
 
     public void QuitGame()
     {
+        audioManager.PlaySFX(audioManager.click);
         Application.Quit();
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
         Debug.Log("Quitting");
     }
 
     public void OpenSetting()
     {
+        audioManager.PlaySFX(audioManager.click);
         setting.SetActive(true);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     } 
     
     public void CloseSetting()
     {
+        audioManager.PlaySFX(audioManager.click);
         setting.SetActive(false);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 }

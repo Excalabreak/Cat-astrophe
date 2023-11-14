@@ -21,9 +21,12 @@ public class BreakableScript : MonoBehaviour
     protected ScoreScript scoreScript;
     [SerializeField] protected int destroyScore = 3;
 
+    AudioManager audioManager;
+
     protected void Awake()
     {
         currentHealth = maxHealth;
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         mr = GetComponent<MeshRenderer>();
         scoreScript = GetComponent<ScoreScript>();
     }
@@ -74,14 +77,17 @@ public class BreakableScript : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            audioManager.PlaySFX(audioManager.scratch);
             return destroyedMat;
         }
         else if (healthPercent < .67f)
         {
+            audioManager.PlaySFX(audioManager.scratch);
             return halfMat;
         }
         else
         {
+            audioManager.PlaySFX(audioManager.scratch);
             return baseMat;
         }
     }

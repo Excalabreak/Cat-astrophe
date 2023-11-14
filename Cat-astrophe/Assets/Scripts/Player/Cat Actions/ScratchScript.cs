@@ -35,6 +35,9 @@ public class ScratchScript : MonoBehaviour
     //vars for cone of shame
     private ConeOfShame cos;
 
+    //Audio
+    AudioManager audioManager;
+
 
     private void Awake()
     {
@@ -42,7 +45,7 @@ public class ScratchScript : MonoBehaviour
         playerDetected = GetComponent<PlayerDetected>();
         scratchMR = scratchCollider.GetComponent<MeshRenderer>();
         cos = GetComponent<ConeOfShame>();
-
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         //scratchStrength = startingScratchStrength;
     }
 
@@ -67,6 +70,7 @@ public class ScratchScript : MonoBehaviour
                     //gameOverUI.SetUpGameOverUI();
                     Debug.Log("GAME OVER");
                     cos.OnGameOver();
+                    CursorManager.Instance.ShowCursor();
                 }
                 else
                 {
@@ -116,7 +120,7 @@ public class ScratchScript : MonoBehaviour
             hasNekoTe = true;
             nekoTeCurrentDurability = nekoTeMaxDurability;
             scratchStrength = scratchStrength + nekoTeBuff;
-
+            audioManager.PlaySFX(audioManager.eat);
             clawMR.SetActive(true);
         }
         else
@@ -133,7 +137,7 @@ public class ScratchScript : MonoBehaviour
         hasNekoTe = false;
         nekoTeCurrentDurability = 0;
         scratchStrength = scratchStrength - nekoTeBuff;
-
+        audioManager.PlaySFX(audioManager.eat);
         clawMR.SetActive(false);
     }
 
@@ -145,7 +149,7 @@ public class ScratchScript : MonoBehaviour
         //Debug.Log("hi");
         scratchMR.enabled = true;
         isScratching = true;
-
+        
         yield return new WaitForSeconds(scratchTime);
 
         scratchMR.enabled = false;

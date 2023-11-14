@@ -12,6 +12,13 @@ public class CameraBreakableScript : BreakableScript
     [SerializeField] private Material baseMat2;
     [SerializeField] private Material damageMat;
 
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     protected void resetMaterial()
     {
         mr1.material = baseMat1;
@@ -30,6 +37,7 @@ public class CameraBreakableScript : BreakableScript
             {
                 //scoreScript.AddScore(destroyScore);
                 //add score count UI
+                audioManager.PlaySFX(audioManager.brokenCamera);
                 ScoreManager.scoreCount += 3;
             }
 

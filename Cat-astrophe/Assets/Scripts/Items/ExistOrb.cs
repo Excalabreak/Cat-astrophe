@@ -10,6 +10,13 @@ public class ExistOrb : MonoBehaviour
     [SerializeField]
     private float speed;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     private void Update()
     {
         transform.Rotate(rotation * speed * Time.deltaTime);
@@ -19,6 +26,7 @@ public class ExistOrb : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            audioManager.PlaySFX(audioManager.didIt);
             SceneManager.LoadScene(3);
         }
     }

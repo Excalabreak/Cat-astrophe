@@ -6,44 +6,53 @@ using UnityEngine.SceneManagement;
 public class GameOverScreen : MonoBehaviour
 {
     private ScoreManager scoreManager;
-    public GameObject leaderboardPanel;
+    public GameObject leaderBoardMenu;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
+        audioManager.PlayMusic(audioManager.GameOverMenu);
+        audioManager.PlaySFX(audioManager.sad);
         scoreManager = FindAnyObjectByType<ScoreManager>();
         CursorManager.Instance.ShowCursor();
     }
 
     public void Restart()
     {
+        audioManager.PlaySFX(audioManager.click);
         SceneManager.LoadScene(1);
         ScoreManager.scoreCount = 0;
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
-        CursorManager.Instance.ShowCursor();
+        CursorManager.Instance.HideCursor();
     }
 
     public void MainMenu()
     {
+        audioManager.PlaySFX(audioManager.click);
         SceneManager.LoadScene(0);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
         CursorManager.Instance.ShowCursor();
     }
 
-    public void Level2()
+    public void QuitGame()
     {
-        SceneManager.LoadScene(4);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+        audioManager.PlaySFX(audioManager.click);
+        Application.Quit();
+        Debug.Log("Quitting");
     }
 
-    public void OpenLeaderboard()
+    public void OpenLeaderBoard()
     {
-        leaderboardPanel.SetActive(true);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
-    }
+        audioManager.PlaySFX(audioManager.click);
+        leaderBoardMenu.SetActive(true);
+    } 
     
-    public void CloseLeaderboard()
+    public void CloseLeaderBoard()
     {
-        leaderboardPanel.SetActive(false);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
+        audioManager.PlaySFX(audioManager.click);
+        leaderBoardMenu.SetActive(false);
     }
 }

@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using TMPro;
+using UnityEngine.UI;
 
 public class SettingMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    [SerializeField]
+    private AudioMixer myMixer;
+    [SerializeField]
+    private Slider musicSlider;
+    [SerializeField]
+    private Slider SFXSlider;
+
 
     //helps to set up resolution
     public TMP_Dropdown resolutionDropdown;
@@ -14,6 +21,17 @@ public class SettingMenu : MonoBehaviour
 
     void Start()
     {
+        //Set volume when it starts
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            LoadVolume();
+        }
+        else
+        {
+            SetMusicVolume();
+            SetSFXVolume();
+        }
+
         //continue resolution
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -42,9 +60,29 @@ public class SettingMenu : MonoBehaviour
     }
 
     //helps to set up the volume
-    public void SetVolume(float volume)
+    public void SetMusicVolume()
     {
-        audioMixer.SetFloat("volume", volume);
+        float volume = musicSlider.value;
+        myMixer.SetFloat("Music", Mathf.Log10(volume)*20);
+        //save volume
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+    }
+    
+    public void SetSFXVolume()
+    {
+        float volume = SFXSlider.value;
+        myMixer.SetFloat("SFX", Mathf.Log10(volume)*20);
+        //save volume
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+    }
+
+    private void LoadVolume()
+    {
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+
+        SetMusicVolume();
+        SetSFXVolume();
     }
 
     //helps to quality

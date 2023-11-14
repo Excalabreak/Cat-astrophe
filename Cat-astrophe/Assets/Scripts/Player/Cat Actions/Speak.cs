@@ -6,10 +6,15 @@ using UnityEngine.InputSystem;
 public class Speak : MonoBehaviour
 {
     //Variable for sounds
-    [SerializeField] private AudioSource meow;
+    //[SerializeField] private AudioSource meow;
     [SerializeField] private AudioSource purr;
     [SerializeField] private bool sleeping;
-  
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,7 +30,8 @@ public class Speak : MonoBehaviour
     {
         if (Keyboard.current.fKey.wasPressedThisFrame)
         {
-            meow.Play();
+            //meow.Play();
+            audioManager.PlaySFX(audioManager.meow);
         }
     }
 
@@ -34,6 +40,7 @@ public class Speak : MonoBehaviour
     {
         if (Keyboard.current.qKey.isPressed)
         {
+            //audioManager.PlaySFX(audioManager.pur);
             if (sleeping == false)
             {
                 sleeping = true;
@@ -44,6 +51,7 @@ public class Speak : MonoBehaviour
         {
             purr.Stop();
             sleeping = false;
+
         }
 
     }

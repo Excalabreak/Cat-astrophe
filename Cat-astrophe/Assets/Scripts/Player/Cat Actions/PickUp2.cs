@@ -14,6 +14,12 @@ public class PickUp2 : MonoBehaviour
     private Collider CurrentObjectCollider;
 
     [SerializeField] private float throwForce = 5f;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     /// <summary>
     /// adds force to object in hand and drops it
@@ -33,7 +39,7 @@ public class PickUp2 : MonoBehaviour
             CurrentObject = null;
             CurrentObjectRigidBody = null;
             CurrentObjectCollider = null;
-
+            audioManager.PlaySFX(audioManager.eat);
             return;
         }
     }
@@ -51,7 +57,7 @@ public class PickUp2 : MonoBehaviour
             CurrentObject = null;
             CurrentObjectRigidBody = null;
             CurrentObjectCollider = null;
-
+            audioManager.PlaySFX(audioManager.eat);
             return;
         }
 
@@ -64,6 +70,7 @@ public class PickUp2 : MonoBehaviour
 
             CurrentObjectRigidBody.useGravity = false;
             CurrentObjectCollider.enabled = false;
+            audioManager.PlaySFX(audioManager.eat);
         }
     }
 
