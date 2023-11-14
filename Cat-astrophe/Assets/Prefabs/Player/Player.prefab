@@ -752,12 +752,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6ed44b172ae344db727057161b0f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iPoint: {fileID: 0}
+  iPoint: {fileID: 8324217080680946927}
   iRadius: 0.5
   iMask:
     serializedVersion: 2
-    m_Bits: 64
-  iUI: {fileID: 0}
+    m_Bits: 72
+  iUI: {fileID: 2034843826984670818}
 --- !u!114 &-3458902978347022830
 MonoBehaviour:
   m_ObjectHideFlags: 0

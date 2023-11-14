@@ -19,20 +19,20 @@ public class Objective : MonoBehaviour
         {
             StartCoroutine(missionObj());
         }
+    }
 
-        // Action
-         IEnumerator missionObj()
-        {
-            objSFX.Play();
-            theObjective.SetActive(true);
-            theObjective.GetComponent<Animation>().Play("ObjectiveDisplayAnim");
-            theText.GetComponent<Text>().text = "Destroy everything before Clara gets back home!";
+    // Action
+    private IEnumerator missionObj()
+    {
+        objSFX.Play();
+        theObjective.SetActive(true);
+        theObjective.GetComponent<Animation>().Play("ObjectiveDisplayAnim");
+        theText.GetComponent<Text>().text = "Destroy everything before Clara gets back home!";
 
-            // Delay function
-            yield return new WaitForSeconds(7.3f);
-            theText.GetComponent<Text>().text = "";
-            theTrigger.SetActive(false);
-            theObjective.SetActive(false);
-        }
+        // Delay function
+        yield return new WaitForSeconds(7.3f);
+        theText.GetComponent<Text>().text = "";
+        theTrigger.SetActive(false);
+        theObjective.SetActive(false);
     }
 }
