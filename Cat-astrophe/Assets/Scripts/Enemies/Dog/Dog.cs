@@ -11,11 +11,14 @@ public class Dog : MonoBehaviour
     [SerializeField] float minDist = 0;
     [SerializeField] bool sighted;
 
+    private GameObject player;
+
     // Awake is called before the first frame update
     void Awake()
     {
         //Transforming sighted into false on awake
         sighted = false;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class Dog : MonoBehaviour
     //First encounter
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform == GameObject.FindGameObjectWithTag("Player").transform)
+        if (other.transform.tag == "Player")
         {
             bark.Play();
         }
@@ -42,7 +45,7 @@ public class Dog : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        if (other.transform == GameObject.FindGameObjectWithTag("Player").transform && !other.gameObject.GetComponent<PlayerDetected>().Blanket)
+        if (other.transform.tag == "Player" && !other.gameObject.GetComponent<PlayerDetected>().Blanket)
         {
             sighted = true;
         }
@@ -51,7 +54,7 @@ public class Dog : MonoBehaviour
     //Not sighted
     private void OnTriggerExit(Collider other)
     {
-        if(other.transform == GameObject.FindGameObjectWithTag("Player").transform)
+        if(other.transform.tag == "Player")
         {
             sighted = false;
             bark.Stop();
@@ -61,10 +64,10 @@ public class Dog : MonoBehaviour
     //Move
     private void CatFound()
     {
-        Vector3 lookingCat = GameObject.FindGameObjectWithTag("Player").transform.position;
+        Vector3 lookingCat = player.transform.position;
         lookingCat.y = transform.position.y;
         transform.LookAt(lookingCat);
-        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= minDist)
+        if (Vector3.Distance(transform.position, player.transform.position) >= minDist)
         {
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }

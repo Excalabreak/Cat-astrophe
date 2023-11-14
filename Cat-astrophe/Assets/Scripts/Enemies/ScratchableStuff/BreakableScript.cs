@@ -89,7 +89,7 @@ public class BreakableScript : MonoBehaviour
     //feedback for when object gets damaged
     protected virtual IEnumerator DamageBlink()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
             mr.material = destroyedMat;
             yield return new WaitForSeconds(.1f);

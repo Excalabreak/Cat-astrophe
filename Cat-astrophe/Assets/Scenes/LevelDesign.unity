@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8350,7 +8350,7 @@ GameObject:
   - component: {fileID: 1180812566213380675}
   m_Layer: 0
   m_Name: Cube (27)
-  m_TagString: Environment
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -10690,7 +10690,6 @@ MonoBehaviour:
   jumpTreatBuff: 15
   treatTime: 10
   blanketMoveDebuff: 1
-  blanketJumpDebuff: 15
   rayCastHeightOffset: 0.5
   leapingVelocity: 3
   fallingSpeed: 33
@@ -11634,6 +11633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 5874841654006378347}
+  setting: {fileID: 0}
 --- !u!65 &4515644027195644748
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16512,7 +16512,7 @@ GameObject:
   - component: {fileID: 9144459652575950830}
   m_Layer: 0
   m_Name: Cube (30)
-  m_TagString: Environment
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -16599,7 +16599,7 @@ GameObject:
   - component: {fileID: 5304218034522558538}
   m_Layer: 0
   m_Name: Cube (29)
-  m_TagString: Environment
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -18697,7 +18697,7 @@ GameObject:
   - component: {fileID: 2079078570184595579}
   m_Layer: 0
   m_Name: Cube (28)
-  m_TagString: Environment
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8

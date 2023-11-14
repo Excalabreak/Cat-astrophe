@@ -15,6 +15,9 @@ public class PickUp2 : MonoBehaviour
 
     [SerializeField] private float throwForce = 5f;
 
+    /// <summary>
+    /// adds force to object in hand and drops it
+    /// </summary>
     public void HandleToss()
     {
         if (CurrentObject)
@@ -35,6 +38,9 @@ public class PickUp2 : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// picks up and drops items with pickable layer in rance when called
+    /// </summary>
     public void HandlePickUp()
     {
         if (CurrentObject)
@@ -61,6 +67,9 @@ public class PickUp2 : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// keeps heald items in front of cat
+    /// </summary>
     private void FixedUpdate()
     {
         if (CurrentObject)

@@ -40,7 +40,7 @@ public class CameraBreakableScript : BreakableScript
 
     protected override IEnumerator DamageBlink()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
             mr1.material = damageMat;
             mr2.material = damageMat;

@@ -26,7 +26,6 @@ public class PlayerMotion : MonoBehaviour
 
     //vars for debuffs when wearing blanket
     [SerializeField] private float blanketMoveDebuff = 1f;
-    [SerializeField] private float blanketJumpDebuff = 15f;
 
     //the direction where it rotates
     private Vector3 moveDirection;
@@ -89,7 +88,6 @@ public class PlayerMotion : MonoBehaviour
     public void HandleBlanketDebuff()
     {
         moveSpeed = moveSpeed - blanketMoveDebuff;
-        jumpHeight = jumpHeight + blanketJumpDebuff;
     }
 
     /// <summary>
@@ -98,7 +96,6 @@ public class PlayerMotion : MonoBehaviour
     public void RemoveBlanketDebuff()
     {
         moveSpeed = moveSpeed + blanketMoveDebuff;
-        jumpHeight = jumpHeight - blanketJumpDebuff;
     }
 
     /// <summary>

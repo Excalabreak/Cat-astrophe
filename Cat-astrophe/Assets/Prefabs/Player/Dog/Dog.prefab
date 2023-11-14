@@ -927,5 +927,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   bark: {fileID: 8114393104284207874}
-  minDist: -400.5
+  minDist: 0
   sighted: 1
