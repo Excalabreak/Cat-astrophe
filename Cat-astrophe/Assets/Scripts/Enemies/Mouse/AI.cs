@@ -10,7 +10,7 @@ public class AI : MonoBehaviour
     public LayerMask Ground, Player;
     public int speed;
 
-    [SerializeField] private float displacementDist = 3f;
+    //[SerializeField] private float displacementDist = 3f;
 
     //Patrolling
     public Vector3 walkPoint;
@@ -26,11 +26,18 @@ public class AI : MonoBehaviour
     public float sightRange, runRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    AudioManager audioManager;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-       
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+    private void Start()
+    {
+        audioManager.PlaySFX(audioManager.mouse);
     }
 
     private void Update()

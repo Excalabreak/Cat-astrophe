@@ -9,6 +9,7 @@ TagManager:
   - Breakable
   - Environment
   - PowerUp
+  - Audio
   layers:
   - Default
   - TransparentFX

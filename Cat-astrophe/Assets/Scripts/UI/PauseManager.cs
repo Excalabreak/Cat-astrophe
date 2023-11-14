@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenu;
+    AudioManager audioManager;
 
     public static bool paused = false;
 
@@ -14,6 +15,7 @@ public class PauseManager : MonoBehaviour
     private void Awake()
     {
         action = new PauseAction();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void OnEnable()
@@ -29,6 +31,7 @@ public class PauseManager : MonoBehaviour
     private void Start()
     {
         action.Pause.PauseGame.performed += _ => DeterminePause();
+        audioManager.PlayMusic(audioManager.PauseMenu);
     }
 
     private void DeterminePause()
@@ -44,32 +47,32 @@ public class PauseManager : MonoBehaviour
     }
     public void PauseGame()
     {
+        audioManager.PlaySFX(audioManager.click);
         Time.timeScale = 0;
-        AudioListener.pause = true;
+        //AudioListener.pause = true;
         paused = true;
         pauseMenu.SetActive(true);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
     public void ResumeGame()
     {
+        audioManager.PlaySFX(audioManager.click);
         Time.timeScale = 1;
-        AudioListener.pause = false;
+        //AudioListener.pause = false;
         paused = false;
         pauseMenu.SetActive(false);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
     public void MainMenu()
     {
+        audioManager.PlaySFX(audioManager.click);
         SceneManager.LoadScene(0);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
     public void QuitGame()
     {
+        audioManager.PlaySFX(audioManager.click);
         Application.Quit();
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
         Debug.Log("Quitting");
     }
 }

@@ -8,63 +8,70 @@ public class MainMenu : MonoBehaviour
     public GameObject optionScreen;
     public GameObject levelSelection;
 
+    AudioManager audioManager;
 
     private ScoreManager scoreManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
         scoreManager = FindAnyObjectByType<ScoreManager>();
+        audioManager.PlayMusic(audioManager.MainMenu);
     }
 
     public void Level1()
     {
+        audioManager.PlaySFX(audioManager.click);
         SceneManager.LoadScene(1);
         ScoreManager.scoreCount = 0;
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
     
     public void Level2()
     {
-        //SceneManager.LoadScene();
+        audioManager.PlaySFX(audioManager.click);
+        SceneManager.LoadScene(4);
         ScoreManager.scoreCount = 0;
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     } 
     
     public void Level3()
     {
+        audioManager.PlaySFX(audioManager.click);
         //SceneManager.LoadScene();
         ScoreManager.scoreCount = 0;
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
     public void OpenOption()
     {
+        audioManager.PlaySFX(audioManager.click);
         optionScreen.SetActive(true);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
     
     public void OpenLevelSelection()
     {
+        audioManager.PlaySFX(audioManager.click);
         levelSelection.SetActive(true);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
     public void CloseOption()
     {
+        audioManager.PlaySFX(audioManager.click);
         optionScreen.SetActive(false);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
     
     public void CloseLevelSelection()
     {
+        audioManager.PlaySFX(audioManager.click);
         levelSelection.SetActive(false);
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
     }
 
     public void QuitGame()
     {
+        audioManager.PlaySFX(audioManager.click);
         Application.Quit();
-        SFXManager.sxfInstance.Audio.PlayOneShot(SFXManager.sxfInstance.Click);
         Debug.Log("Quitting");
     }
 }
