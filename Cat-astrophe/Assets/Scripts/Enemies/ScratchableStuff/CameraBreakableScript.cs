@@ -38,7 +38,7 @@ public class CameraBreakableScript : BreakableScript
                 //scoreScript.AddScore(destroyScore);
                 //add score count UI
                 audioManager.PlaySFX(audioManager.brokenCamera);
-                ScoreManager.scoreCount += 3;
+                ScoreManager.scoreCount += 5;
             }
 
 

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Kill : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.tag == "Scratch")
+        if (other.gameObject.tag == "Scratch")
         {
+            ScoreManager.scoreCount += 8;
             Destroy(this.gameObject);
         }
     }
