@@ -31,7 +31,7 @@ public class PlayerMotion : MonoBehaviour
     private Vector3 moveDirection;
 
     //variables for falling
-    private bool isGrounded;
+    [SerializeField] private bool isGrounded;
     private float inAirTimer;
     [SerializeField] private float rayCastHeightOffset = 0.5f;
     [SerializeField] private float leapingVelocity;
@@ -148,12 +148,9 @@ public class PlayerMotion : MonoBehaviour
 
         if (!isGrounded && !playerClimb.Climbing)
         {
-            if (inAirTimer < 1.5f)
-            {
-                inAirTimer = inAirTimer + Time.deltaTime;
-                playerRigidBody.AddForce(transform.forward * leapingVelocity);
-                playerRigidBody.AddForce(-Vector3.up * fallingSpeed * inAirTimer);
-            }
+            inAirTimer = inAirTimer + Time.deltaTime;
+            //playerRigidBody.AddForce(transform.forward * leapingVelocity);
+            playerRigidBody.AddForce(Vector3.down * fallingSpeed * inAirTimer);
         }
 
         if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, maxDistance, groundLayer, QueryTriggerInteraction.Ignore) || playerClimb.Climbing)

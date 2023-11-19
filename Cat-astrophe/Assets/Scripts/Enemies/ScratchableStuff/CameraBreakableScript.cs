@@ -12,7 +12,7 @@ public class CameraBreakableScript : BreakableScript
     [SerializeField] private Material baseMat2;
     [SerializeField] private Material damageMat;
 
-    AudioManager audioManager;
+    //AudioManager audioManager;
 
     private void Start()
     {
