@@ -8,7 +8,8 @@ public class ConeOfShame : MonoBehaviour
     private PlayerMotion playerMotion;
     private ScratchScript scratchScript;
 
-    private bool wasWarned = false;
+    private bool hasConeOfShame = false;
+    private bool firstWarning = false;
 
     //mesh renderer for cone of shame
     [SerializeField] private MeshRenderer coneMR;
@@ -19,9 +20,14 @@ public class ConeOfShame : MonoBehaviour
         scratchScript = GetComponent<ScratchScript>();
     }
 
+    public void GiveFirstWarning()
+    {
+        firstWarning = true;
+    }
+
     public void AddConeOfShame()
     {
-        wasWarned = true;
+        hasConeOfShame = true;
         coneMR.enabled = true;
         playerMotion.HandleConeOfShame();
     }
@@ -39,11 +45,15 @@ public class ConeOfShame : MonoBehaviour
     {
         coneMR.enabled = false;
         playerMotion.ResetStats();
-        wasWarned = false;
+        hasConeOfShame = false;
     }
 
-    public bool WasWarned
+    public bool HasConeOfShame
     {
-        get { return wasWarned; }
+        get { return hasConeOfShame; }
+    }
+    public bool FirstWarning
+    {
+        get { return firstWarning; }
     }
 }

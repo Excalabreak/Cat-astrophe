@@ -31,12 +31,15 @@ public class ScratchScript : MonoBehaviour
     //var to make sure how long the hitbox is active for
     [SerializeField] float scratchTime = .5f;
     private bool isScratching = false;
+    private bool canScratch = true;
 
     //vars for cone of shame
-    private ConeOfShame cos;
+    private ConeOfShame coneOfShame;
 
     //Audio
     AudioManager audioManager;
+
+    [SerializeField] private GameObject warningModel;
 
 
     private void Awake()
@@ -44,7 +47,7 @@ public class ScratchScript : MonoBehaviour
         playerMotion = GetComponent<PlayerMotion>();
         playerDetected = GetComponent<PlayerDetected>();
         scratchMR = scratchCollider.GetComponent<MeshRenderer>();
-        cos = GetComponent<ConeOfShame>();
+        coneOfShame = GetComponent<ConeOfShame>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         //scratchStrength = startingScratchStrength;
     }
@@ -52,7 +55,10 @@ public class ScratchScript : MonoBehaviour
     //turns isScratching on
     public void HandleScratch()
     {
-        StartCoroutine(Scratch());
+        if (canScratch)
+        {
+            StartCoroutine(Scratch());
+        }
     }
 
     //will scrach objects tagged with breakable
@@ -62,26 +68,34 @@ public class ScratchScript : MonoBehaviour
         {
             if (playerDetected.IsDetected && !caughtScraching)
             {
-                if (cos.WasWarned)
+                if (coneOfShame.HasConeOfShame)
                 {
                     //gameover scene
                     caughtScraching = true;
                     RemoveNekoTe();
                     //gameOverUI.SetUpGameOverUI();
                     Debug.Log("GAME OVER");
-                    cos.OnGameOver();
+                    coneOfShame.OnGameOver();
                     CursorManager.Instance.ShowCursor();
                 }
-                else
+                else if(coneOfShame.FirstWarning)
                 {
                     //score count in UI
                     ScoreManager.scoreCount -= 5;
                     caughtScraching = true;
                     RemoveNekoTe();
-                    cos.AddConeOfShame();
+                    coneOfShame.AddConeOfShame();
                     //gameOverUI.SetUpConeOfShameUI();
                     Debug.Log("CONE OF SHAME");
-                    
+                    StartCoroutine(GracePeriod());
+                }
+                else
+                {
+                    ScoreManager.scoreCount -= 5;
+                    caughtScraching = true;
+                    coneOfShame.GiveFirstWarning();
+                    StartCoroutine(GracePeriod());
+                    RemoveNekoTe();
                 }
             }
             else
@@ -155,5 +169,21 @@ public class ScratchScript : MonoBehaviour
         scratchMR.enabled = false;
         isScratching = false;
         caughtScraching = false;
+    }
+
+    private IEnumerator GracePeriod()
+    {
+        canScratch = false;
+        for (int i = 0; i < 8; i++)
+        {
+            warningModel.SetActive(true);
+            playerDetected.ShowAlert();
+            yield return new WaitForSeconds(.2f);
+
+            warningModel.SetActive(false);
+            yield return new WaitForSeconds(.2f);
+        }
+        canScratch = true;
+        playerDetected.HideAlert();
     }
 }
