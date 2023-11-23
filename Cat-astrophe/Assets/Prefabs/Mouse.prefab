@@ -75,10 +75,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 8637377903279527821}
-  player: {fileID: 0}
+  player: {fileID: 208552270061081177, guid: e9eabe0de6c59114b8c6cb5e48d4cf37, type: 3}
   Ground:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 2048
   Player:
     serializedVersion: 2
     m_Bits: 256
