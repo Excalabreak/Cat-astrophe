@@ -21,7 +21,7 @@ public class BreakableScript : MonoBehaviour
     protected ScoreScript scoreScript;
     [SerializeField] protected int destroyScore = 3;
 
-    AudioManager audioManager;
+    protected AudioManager audioManager;
 
     protected void Awake()
     {

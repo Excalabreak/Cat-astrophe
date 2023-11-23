@@ -61,7 +61,7 @@ public class PlayerDetected : MonoBehaviour
     /// <summary>
     /// shows model for alert
     /// </summary>
-    private void ShowAlert()
+    public void ShowAlert()
     {
         alertModel.SetActive(true);
     }
@@ -69,7 +69,7 @@ public class PlayerDetected : MonoBehaviour
     /// <summary>
     /// hides alert model
     /// </summary>
-    private void HideAlert()
+    public void HideAlert()
     {
         alertModel.SetActive(false);
     }
