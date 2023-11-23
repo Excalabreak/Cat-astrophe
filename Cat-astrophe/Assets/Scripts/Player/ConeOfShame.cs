@@ -43,9 +43,12 @@ public class ConeOfShame : MonoBehaviour
     /// </summary>
     public void ResetConeOfShame()
     {
-        coneMR.enabled = false;
-        playerMotion.ResetStats();
-        hasConeOfShame = false;
+        if (hasConeOfShame)
+        {
+            coneMR.enabled = false;
+            playerMotion.ResetStats();
+            hasConeOfShame = false;
+        }
     }
 
     public bool HasConeOfShame
