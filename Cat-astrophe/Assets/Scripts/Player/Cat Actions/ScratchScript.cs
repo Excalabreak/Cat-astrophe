@@ -148,11 +148,14 @@ public class ScratchScript : MonoBehaviour
     /// </summary>
     private void RemoveNekoTe()
     {
-        hasNekoTe = false;
-        nekoTeCurrentDurability = 0;
-        scratchStrength = scratchStrength - nekoTeBuff;
-        audioManager.PlaySFX(audioManager.eat);
-        clawMR.SetActive(false);
+        if (hasNekoTe)
+        {
+            hasNekoTe = false;
+            nekoTeCurrentDurability = 0;
+            scratchStrength = scratchStrength - nekoTeBuff;
+            audioManager.PlaySFX(audioManager.eat);
+            clawMR.SetActive(false);
+        }
     }
 
     /// <summary>
