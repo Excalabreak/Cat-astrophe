@@ -52,7 +52,17 @@ public class AI : MonoBehaviour
 
         //RunAway();
     }
-
+   
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Scratch")
+        {
+            ScoreManager.scoreCount += 8;
+            Destroy(this.gameObject);
+            audioManager.StopAllCoroutines();
+        }
+   
+    }
     private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
