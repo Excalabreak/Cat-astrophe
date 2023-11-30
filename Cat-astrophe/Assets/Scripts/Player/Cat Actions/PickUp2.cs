@@ -62,7 +62,7 @@ public class PickUp2 : MonoBehaviour
         }
 
         //Ray CameraRay = playerCamera.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
-        if (Physics.SphereCast(transform.position, 1f, orientation.forward, out RaycastHit hit, pickUpRange, pickUpMask))
+        if (Physics.Raycast(transform.position, orientation.forward, out RaycastHit hit, pickUpRange, pickUpMask))
         {
             CurrentObject = hit.transform.gameObject;
             CurrentObjectRigidBody = CurrentObject.GetComponent<Rigidbody>();

@@ -31,7 +31,7 @@ public class EnemyCameraDetection : MonoBehaviour
 
             Vector3 raycastOrigin = transform.position;
             Vector3 playerDirection = (player.transform.position - gameObject.transform.position).normalized;
-            raycastOrigin = raycastOrigin + playerDirection;
+            //raycastOrigin = raycastOrigin + playerDirection;
 
             if (Physics.Raycast(raycastOrigin, playerDirection, out hit, maxDistance, cameraMask, QueryTriggerInteraction.Ignore))
             {
