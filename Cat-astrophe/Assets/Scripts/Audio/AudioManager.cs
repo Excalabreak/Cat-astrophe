@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip click;
     public AudioClip eat;
     public AudioClip scratch;
+    public AudioClip meow1;
     public AudioClip pur;
     public AudioClip meow;
     public AudioClip sad;
