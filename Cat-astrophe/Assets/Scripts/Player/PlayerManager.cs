@@ -30,9 +30,6 @@ public class PlayerManager : MonoBehaviour
      */
     private void Update()
     {
-        //pause game
-        if (PauseManager.paused) return;
-        if (Info.pausedInfo) return;
         inputManager.HandleAllInputs();
     }
 
