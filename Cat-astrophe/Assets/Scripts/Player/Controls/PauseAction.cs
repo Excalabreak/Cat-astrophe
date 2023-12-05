@@ -35,6 +35,15 @@ public partial class @PauseAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InfoPause"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b246778-6238-424c-842a-d68bce416813"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -59,6 +68,17 @@ public partial class @PauseAction: IInputActionCollection2, IDisposable
                     ""action"": ""PauseGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""609432d1-f4f1-485f-889a-f6f1310edb3a"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InfoPause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -68,6 +88,7 @@ public partial class @PauseAction: IInputActionCollection2, IDisposable
         // Pause
         m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
         m_Pause_PauseGame = m_Pause.FindAction("PauseGame", throwIfNotFound: true);
+        m_Pause_InfoPause = m_Pause.FindAction("InfoPause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -130,11 +151,13 @@ public partial class @PauseAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Pause;
     private List<IPauseActions> m_PauseActionsCallbackInterfaces = new List<IPauseActions>();
     private readonly InputAction m_Pause_PauseGame;
+    private readonly InputAction m_Pause_InfoPause;
     public struct PauseActions
     {
         private @PauseAction m_Wrapper;
         public PauseActions(@PauseAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @PauseGame => m_Wrapper.m_Pause_PauseGame;
+        public InputAction @InfoPause => m_Wrapper.m_Pause_InfoPause;
         public InputActionMap Get() { return m_Wrapper.m_Pause; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -147,6 +170,9 @@ public partial class @PauseAction: IInputActionCollection2, IDisposable
             @PauseGame.started += instance.OnPauseGame;
             @PauseGame.performed += instance.OnPauseGame;
             @PauseGame.canceled += instance.OnPauseGame;
+            @InfoPause.started += instance.OnInfoPause;
+            @InfoPause.performed += instance.OnInfoPause;
+            @InfoPause.canceled += instance.OnInfoPause;
         }
 
         private void UnregisterCallbacks(IPauseActions instance)
@@ -154,6 +180,9 @@ public partial class @PauseAction: IInputActionCollection2, IDisposable
             @PauseGame.started -= instance.OnPauseGame;
             @PauseGame.performed -= instance.OnPauseGame;
             @PauseGame.canceled -= instance.OnPauseGame;
+            @InfoPause.started -= instance.OnInfoPause;
+            @InfoPause.performed -= instance.OnInfoPause;
+            @InfoPause.canceled -= instance.OnInfoPause;
         }
 
         public void RemoveCallbacks(IPauseActions instance)
@@ -174,5 +203,6 @@ public partial class @PauseAction: IInputActionCollection2, IDisposable
     public interface IPauseActions
     {
         void OnPauseGame(InputAction.CallbackContext context);
+        void OnInfoPause(InputAction.CallbackContext context);
     }
 }
