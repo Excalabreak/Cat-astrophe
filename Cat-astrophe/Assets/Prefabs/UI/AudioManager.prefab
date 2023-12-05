@@ -184,16 +184,16 @@ MonoBehaviour:
   Level2: {fileID: 8300000, guid: f0c42f7637892c9418d2321e74642389, type: 3}
   click: {fileID: 8300000, guid: 74ca65115d250534c963c8cbbc730f08, type: 3}
   eat: {fileID: 8300000, guid: 1183f1762d037504b926ebb16041e5f8, type: 3}
-  scratch: {fileID: 8300000, guid: b489b5db0ba9c1143bb0527a459a6be0, type: 3}
+  scratch: {fileID: 8300000, guid: 8bc777650e343c64ca47344b07236f2b, type: 3}
   pur: {fileID: 8300000, guid: 5c53dc5aaab9fb04d86955648aaa822a, type: 3}
   meow: {fileID: 8300000, guid: b4e22122f3738d6498f82d4c38bb9836, type: 3}
   sad: {fileID: 8300000, guid: d474dd7ef81ac64418461e375143e500, type: 3}
   didIt: {fileID: 8300000, guid: 7c7bb0188af19584dbec67bd2369ab7a, type: 3}
   mad: {fileID: 8300000, guid: 4201c392f53e9e347b70403715223fd5, type: 3}
   dog: {fileID: 8300000, guid: 08d564a4df319bf41ac2ca6bc4688822, type: 3}
-  mouse: {fileID: 8300000, guid: a3184677f8357304d832446e9d91b6e6, type: 3}
+  mouse: {fileID: 8300000, guid: e05dd466ecaddcd45acaf995215a6bf1, type: 3}
   brokenGlass: {fileID: 8300000, guid: f0db953bd7b17f243b9035262f73db6e, type: 3}
-  brokenCamera: {fileID: 8300000, guid: d8e43444d39b1ab47b3063c8992c9145, type: 3}
+  brokenCamera: {fileID: 8300000, guid: 0312b8f12ea4a264ea8ae2e51cb5a28e, type: 3}
 --- !u!1 &8910713100825504854
 GameObject:
   m_ObjectHideFlags: 0
