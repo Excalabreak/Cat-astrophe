@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4e51470e234fe4fbe69c20e03d1b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 25
+  maxDistance: 100
   cameraMask:
     serializedVersion: 2
     m_Bits: 4294967295
