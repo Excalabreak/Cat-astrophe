@@ -164,6 +164,9 @@ public class PlayerClimb : MonoBehaviour
         climbJumpLeft--;
     }
 
+    /// <summary>
+    /// is the player climbing
+    /// </summary>
     public bool Climbing
     {
         get { return climbing; }

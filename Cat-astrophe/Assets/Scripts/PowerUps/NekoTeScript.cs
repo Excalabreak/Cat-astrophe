@@ -11,8 +11,7 @@ public class NekoTeScript : MonoBehaviour
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
-    //IDEA TO REMEMGER: REMOVE NEKOTE, REDUCE TIME AND/OR CONE OF SHAME AFTER DESTROYING CAMERA
-    //GIVES DILEMA OF DESTROYING CAMERAS OR BLOCKING THEM
+    ////on trigger, call to handle power up and destroy game object after
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")

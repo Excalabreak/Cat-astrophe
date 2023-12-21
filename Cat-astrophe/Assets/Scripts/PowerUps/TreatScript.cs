@@ -11,6 +11,7 @@ public class TreatScript : MonoBehaviour
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
+    //on trigger, call to handle power up and destroy game object after
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")

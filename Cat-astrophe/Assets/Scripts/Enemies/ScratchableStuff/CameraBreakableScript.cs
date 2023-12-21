@@ -19,12 +19,19 @@ public class CameraBreakableScript : BreakableScript
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
+    /// <summary>
+    /// sets the material back to the original mats
+    /// </summary>
     protected void resetMaterial()
     {
         mr1.material = baseMat1;
         mr2.material = baseMat2;
     }
 
+    /// <summary>
+    /// process damage for camera
+    /// </summary>
+    /// <param name="damage"></param>
     public override void DamageObject(int damage)
     {
         if (currentHealth > 0 && !invincible)
@@ -46,6 +53,10 @@ public class CameraBreakableScript : BreakableScript
         }
     }
 
+    /// <summary>
+    /// flashes red to indicate hurt
+    /// </summary>
+    /// <returns></returns>
     protected override IEnumerator DamageBlink()
     {
         for (int i = 0; i < 2; i++)

@@ -41,7 +41,7 @@ public class ScratchScript : MonoBehaviour
 
     [SerializeField] private GameObject warningModel;
 
-
+    //on awake get all components
     private void Awake()
     {
         playerMotion = GetComponent<PlayerMotion>();
@@ -52,7 +52,9 @@ public class ScratchScript : MonoBehaviour
         //scratchStrength = startingScratchStrength;
     }
 
-    //turns isScratching on
+    /// <summary>
+    /// calls the scratch coroutine if the player can scratch
+    /// </summary>
     public void HandleScratch()
     {
         if (canScratch)
@@ -174,6 +176,11 @@ public class ScratchScript : MonoBehaviour
         caughtScraching = false;
     }
 
+    /// <summary>
+    /// when the player gets caught/cone of shame,
+    /// gives a grace period of when they can't get hurt and can't scratch
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator GracePeriod()
     {
         canScratch = false;

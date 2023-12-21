@@ -44,9 +44,7 @@ public class InputManager : MonoBehaviour
 
     /*
      * When the object(player) this is on is enabled:
-     * creates a PlayerControls if there isnt already one
-     * the lambda(=>) is what gets the inputs from the keyboard/controller
-     * Enables player Controls
+     * sets all the callback context for each input
      */
     private void OnEnable()
     {
@@ -154,21 +152,33 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// get the forward and back inputs
+    /// </summary>
     public float VerticalInput
     {
         get { return verticalInput; }
     }
 
+    /// <summary>
+    /// get the left and right inputs
+    /// </summary>
     public float HorizontalInput
     {
         get { return horizontalInput; }
     }
 
+    /// <summary>
+    /// get the x input for camera
+    /// </summary>
     public float CameraInputX
     {
         get { return cameraInputX; }
     }
 
+    /// <summary>
+    /// get the y input for camera
+    /// </summary>
     public float CameraInputY
     {
         get { return cameraInputY; }

@@ -187,6 +187,10 @@ public class PlayerMotion : MonoBehaviour
         jumpHeight = startingJumpHeight;
     }
 
+    /// <summary>
+    /// increase speed and jump temporarily
+    /// </summary>
+    /// <returns>how long the buff last</returns>
     private IEnumerator TreatBuff()
     {
         moveSpeed = moveSpeed + moveTreatBuff;
@@ -198,6 +202,9 @@ public class PlayerMotion : MonoBehaviour
         jumpHeight = jumpHeight + jumpTreatBuff;
     }    
 
+    /// <summary>
+    /// is the cat on the ground
+    /// </summary>
     public bool IsGrounded
     {
         get { return isGrounded; }
